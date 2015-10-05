@@ -1,0 +1,995 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=1200">
+
+	
+	<meta name="generator" content="MediaWiki 1.19.2" />
+<meta name="keywords" content="Vim Tips Wiki,vim,Launch files in new tabs under Windows,VimTip1439,VimTip1454,Windows file associations,Add Vim to Windows Send To menu,Associate files with no extension to Vim under Windows,Make vim the editor for files with unregistered extensions in Windows,Launch files in new tabs under Unix,Fritzophrenic,Fritzophrenic,RegistryWarning" />
+<meta name="description" content="Many text editors automatically launch new files in tabs, rather than use a separate window for..." />
+<link rel="canonical" href="http://vim.wikia.com/wiki/Launch_files_in_new_tabs_under_Windows" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/Launch_files_in_new_tabs_under_Windows?action=edit" />
+<link rel="edit" title="Edit" href="/wiki/Launch_files_in_new_tabs_under_Windows?action=edit" />
+<link rel="apple-touch-icon" href="http://images.wikia.com/vim/images/b/bc/Wiki.png" />
+<link rel="shortcut icon" href="http://images3.wikia.nocookie.net/__cb59992/vim/images/6/64/Favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Vim Tips Wiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://vim.wikia.com/api.php?action=rsd" />
+<link rel="copyright" href="http://community.wikia.com/wiki/Wikia:Licensing" />
+<link rel="alternate" type="application/atom+xml" title="Vim Tips Wiki Atom feed" href="/wiki/Special:RecentChanges?feed=atom" />
+	<title>Launch files in new tabs under Windows - Vim Tips Wiki</title>
+	<!-- SASS-generated CSS file -->
+	<link rel="stylesheet" href="http://slot2.images.wikia.nocookie.net/__am/59990/sass/background-align%3Dcenter%26background-fixed%3D0%26background-image%3D%26background-tiled%3Dfalse%26color-body%3D%2523003816%26color-buttons%3D%252325883d%26color-header%3D%2523002c11%26color-links%3D%25232b54b5%26color-page%3D%2523ffffff%26page-opacity%3D100%26wordmark-font%3Dcpmono/skins/oasis/css/oasis.scss">
+	<!-- CSS injected by extensions -->
+	<link rel="stylesheet" href="http://vim.wikia.com/load.php?debug=false&lang=en&modules=ext.wikihiero&only=styles&skin=oasis&*" /><link rel="stylesheet" href="http://slot2.images.wikia.nocookie.net/__am/59990/sass/background-align%3Dcenter%26background-fixed%3D0%26background-image%3D%26background-tiled%3Dfalse%26color-body%3D%2523003816%26color-buttons%3D%252325883d%26color-header%3D%2523002c11%26color-links%3D%25232b54b5%26color-page%3D%2523ffffff%26page-opacity%3D100%26wordmark-font%3Dcpmono/resources/wikia/libraries/bootstrap/popover.scss" /><link rel="stylesheet" href="http://slot2.images.wikia.nocookie.net/__am/59990/sass/background-align%3Dcenter%26background-fixed%3D0%26background-image%3D%26background-tiled%3Dfalse%26color-body%3D%2523003816%26color-buttons%3D%252325883d%26color-header%3D%2523002c11%26color-links%3D%25232b54b5%26color-page%3D%2523ffffff%26page-opacity%3D100%26wordmark-font%3Dcpmono/extensions/wikia/Chat2/css/ChatEntryPoint.scss" /><link rel="stylesheet" href="http://slot2.images.wikia.nocookie.net/__am/59990/sass/background-align%3Dcenter%26background-fixed%3D0%26background-image%3D%26background-tiled%3Dfalse%26color-body%3D%2523003816%26color-buttons%3D%252325883d%26color-header%3D%2523002c11%26color-links%3D%25232b54b5%26color-page%3D%2523ffffff%26page-opacity%3D100%26wordmark-font%3Dcpmono/extensions/wikia/UserLogin/css/UserLoginDropdown.scss" /><style>			/* Add a pretty logo to Facebook links */
+			.mw-fblink {
+				background: url(http://static.ak.fbcdn.net/images/icons/favicon.gif) top left no-repeat !important;
+				padding-left: 17px !important;
+			}</style><style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: vim:resourceloader:filter:minify-css:7:c88e2bcd56513749bec09a7e29cb3ffa */</style>	
+	<script>
+var EXP_AD_LOAD_TIMING=1,
+AB_CONFIG=[],
+TG_ONLOAD=1,
+TG_AFTER_DEPENDENCIES=2,
+TG_AS_WRAPPERS_ARE_RENDERED=3,
+wgJqueryUrl=["http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"],
+wikiaPageType="article",
+cscoreCat="Lifestyle",
+wgEnableKruxTargeting=true,
+wgKruxCategoryId="HixyqEjH",
+wgJSMessagesCB="59990.0.56013",
+JSSnippetsStack=[],
+wikiaTrackingSpool=[],
+_gaq=[],
+_wtq=[],
+adslots2=[],
+wgAfterContentAndJS=[],
+wgWikiFactoryTagIds=[125],
+wgWikiFactoryTagNames=["technology"],
+wgDBname="vim",
+wgCityId="2827",
+wgMedusaSlot="slot2",
+wgContentLanguage="en",
+skin="oasis";
+</script>
+<script type="text/javascript" src="http://slot2.images.wikia.nocookie.net/__cb59990/common/extensions/wikia/AnalyticsEngine/js/analytics_prod.js"></script>
+
+<!-- Used for page load time tracking -->
+<script>var wgNow = new Date();</script>
+
+
+<!-- Spool any early event-tracking calls -->
+<script>
+window.WikiaTracker=window.WikiaTracker||{trackEvent:function(eventName,params,method){wikiaTrackingSpool.push([eventName,params,method]);}};</script>
+
+
+<!-- A/B Testing code -->
+<script>
+var EXP_AD_LOAD_TIMING=1,TG_ONLOAD=1,TG_AFTER_DEPENDENCIES=2,TG_AS_WRAPPERS_ARE_RENDERED=3,AB_CONFIG={"1":{"name":"Ad Load Timing","begin_time":"2012-05-10 17:14:39","end_time":"2020-01-01 00:00:00","ga_slot":46,"groups":{"1":{"name":"onload","is_control":true,"min":0,"max":4},"2":{"name":"After Dependencies","is_control":false,"min":5,"max":9},"3":{"name":"As wrappers are rendered","is_control":false,"min":10,"max":99}}}}</script>
+	
+	<script type="text/javascript" src="http://slot2.images.wikia.nocookie.net/__am/59990/groups/-/oasis_blocking,abtesting"></script>
+	<!-- Make IE recognize HTML5 tags. -->
+	<!--[if IE]>
+		<script>/*@cc_on'abbr article aside audio canvas details figcaption figure footer header hgroup mark menu meter nav output progress section summary time video'.replace(/\w+/g,function(n){document.createElement(n)})@*/</script>
+	<![endif]-->
+
+		
+		<meta property="fb:app_id" content="112328095453510" prefix="fb: http://www.facebook.com/2008/fbml" />
+	<meta property="og:type" content="article" />
+	<meta property="og:site_name" content="Vim Tips Wiki" />
+	<meta property="og:title" content="Launch files in new tabs under Windows" />
+	<meta property="og:image" content="http://images3.wikia.nocookie.net/__cb20110108235206/vim/images/8/89/Wiki-wordmark.png" />
+	<meta property="og:description" content="Many text editors automatically launch new files in tabs, rather than use a separate window for..." />
+	<meta property="og:url" content="http://vim.wikia.com/wiki/Launch_files_in_new_tabs_under_Windows" />
+</head>
+<body class="mediawiki ltr ns-0 ns-subject page-Launch_files_in_new_tabs_under_Windows  TOCimprovements skin-oasis oasis-oasis">
+<!-- comScore -->
+<!-- Start for Comscore, page_view -->
+
+<!-- Begin comScore Tag -->
+<script type="text/javascript">
+var _comscore = _comscore || [];
+_comscore.push({ c1: "2", c2: "6177433",
+	options: {
+		url_append: "comscorekw=wikiacsid_lifestyle"
+	}
+});
+
+(function() {
+	var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+	s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+	el.parentNode.insertBefore(s, el);
+})();
+</script>
+<noscript>
+<img src="http://b.scorecardresearch.com/p?c1=2&amp;c2=6177433&amp;c3=&amp;c4=&amp;c5=&amp;c6=&amp;c7=http%3A%2F%2Fvim.wikia.com%2Fwiki%2FLaunch_files_in_new_tabs_under_Windows%3Fcomscorekw%3Dwikiacsid_lifestyle&amp;c15=&amp;cv=2.0&amp;cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+
+<!-- quantServe -->
+<!-- Start for QuantServe, page_view -->
+<script type="text/javascript">
+  var _qevents = _qevents || [];
+
+  (function() {
+   var elem = document.createElement('script');
+
+   elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+   elem.async = true;
+   elem.type = "text/javascript";
+   var scpt = document.getElementsByTagName('script')[0];
+   scpt.parentNode.insertBefore(elem, scpt);  
+  })();
+</script>
+<script type="text/javascript">
+var quantcastLabels = "";
+if (window.cityShort) {
+	quantcastLabels += cityShort;
+	if (window.wgDartCustomKeyValues) {
+		var keyValues = wgDartCustomKeyValues.split(';');
+		for (var i=0; i<keyValues.length; i++) {
+			var keyValue = keyValues[i].split('=');
+			if (keyValue.length >= 2) {
+				quantcastLabels += ',' + cityShort + '.' + keyValue[1];
+			}
+		}
+	}
+}
+_qevents.push( { qacct:"p-8bG6eLqkH6Avk", labels:quantcastLabels } );
+</script>
+<noscript>
+<div style="display: none;"><img src="//pixel.quantserve.com/pixel/p-8bG6eLqkH6Avk.gif" height="1" width="1" alt="Quantcast"/></div>
+</noscript>
+
+
+<!-- googleAnalytics -->
+<!-- Start for GA_Urchin, page_view -->
+<noscript><img src="http://a.wikia-beacon.com/__track/view?c=2827&amp;lc=en&amp;lid=75&amp;x=vim&amp;y=&amp;u=0&amp;ip=193.47.165.251&amp;a=4215&amp;s=oasis&amp;n=0&amp;nojs=1" width="1" height="1" border="0" alt="" /></noscript>
+<script type="text/javascript">
+(function() {
+	var result = RegExp("wikia_beacon_id=([A-Za-z0-9_-]{10})").exec(document.cookie);
+	if(result) {
+		window.beacon_id = result[1];
+	} else {
+		// something went terribly wrong
+	}
+
+	var utma = RegExp("__utma=([0-9\.]+)").exec(document.cookie);
+	var utmb = RegExp("__utmb=([0-9\.]+)").exec(document.cookie);
+
+	var trackUrl = "http://a.wikia-beacon.com/__track/view?c=2827&amp;lc=en&amp;lid=75&amp;x=vim&amp;y=&amp;u=0&amp;ip=193.47.165.251&amp;a=4215&amp;s=oasis&amp;n=0" + ((typeof document.referrer != "undefined") ? "&amp;r=" + escape(document.referrer) : "") + "&amp;cb=" + (new Date).valueOf() + (window.beacon_id ? "&amp;beacon=" + window.beacon_id : "") + (utma && utma[1] ? "&amp;utma=" + utma[1] : "") + (utmb && utmb[1] ? "&amp;utmb=" + utmb[1] : "");
+	document.write('<'+'script type="text/javascript" src="' + trackUrl + '"><'+'/script>');
+})();
+</script>
+<!-- Start for GA_Urchin, onewiki -->
+
+<!-- Start for GA_Urchin, pagetime -->
+
+<!-- Start for GA_Urchin, varnish-stat -->
+
+
+<!-- IVW -->
+<!-- Start for IVW, page_view -->
+<!-- Unsupported language for AnalyticsProviderIVW -->
+
+
+<!-- Liftium options -->
+<script>/*<![CDATA[*/
+LiftiumOptions={"pubid":999,"baseUrl":"\/__varnish_liftium\/","kv_wgDBname":"vim","kv_article_id":4215,"kv_wpage":"Launch_files_in_new_tabs_under_Windows","kv_Hub":"Technology","kv_skin":"oasis","kv_user_lang":"en","kv_cont_lang":"en","kv_isMainPage":false,"kv_page_type":"article","geoUrl":"http:\/\/geoiplookup.wikia.com\/","kv_domain":"vim.wikia.com"};if(typeof EXP_AD_LOAD_TIMING=='undefined'||(!window.wgLoadAdDriverOnLiftiumInit&&window.getTreatmentGroup&&(getTreatmentGroup(EXP_AD_LOAD_TIMING)==TG_ONLOAD))){LiftiumOptions['hasMoreCalls']=true;LiftiumOptions['isCalledAfterOnload']=true;LiftiumOptions['maxLoadDelay']=6000;}
+else{LiftiumOptions['autoInit']=false;}/*]]>*/</script>
+
+				<script type="text/javascript">/*<![CDATA[*/
+					(function(){
+						if (typeof window.EXP_AD_LOAD_TIMING != 'undefined' && (window.wgLoadAdDriverOnLiftiumInit || window.getTreatmentGroup && (getTreatmentGroup(EXP_AD_LOAD_TIMING) == TG_AS_WRAPPERS_ARE_RENDERED))) {
+							wsl.loadScript([].concat(window.getJqueryUrl()).concat(["http:\/\/slot2.images.wikia.nocookie.net\/__am\/59990\/group\/-\/oasis_jquery_ads_js"]));
+						}
+					})();
+				/*]]>*/</script>
+<h1>Wikia</h1>
+<div class="skiplinkcontainer">
+<a class="skiplink" rel="nofollow" href="#WikiaArticle">Skip to Content</a>
+<a class="skiplink wikinav" rel="nofollow" href="#WikiHeader">Skip to Wiki Navigation</a>
+<a class="skiplink sitenav" rel="nofollow" href="#GlobalNavigation">Skip to Site Navigation</a>
+</div>
+
+<div id="ad-skin" class="wikia-ad noprint"></div>
+<!-- BEGIN SLOTNAME: INVISIBLE_TOP -->
+<!-- Null Ad. Reason: Slot is disabled, slotname=INVISIBLE_TOP --><!-- END SLOTNAME: INVISIBLE_TOP -->
+<header id="WikiaHeader" class="WikiaHeader">
+		<div class="wikia-header-mask">
+		<div class="page-width-container">
+			<nav>
+				<h1>Wikia Navigation</h1>
+				<ul>
+					<li class="WikiaLogo">
+						<a href="http://www.wikia.com/Wikia" rel="nofollow"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite logo" height="23" width="91" alt="Wikia"></a>
+					</li>
+					<li class="start-a-wiki">
+						<a href="http://www.wikia.com/Special:CreateWiki" class="wikia-button">Start a wiki</a>
+					</li>
+					<li>
+						<ul id="GlobalNavigation" class="GlobalNavigation" data-hash="d2c8155ffd107a10fc998bf901984dfb">
+																																			<li class="topNav Video_Games " data-index="1">
+											<a href="http://www.wikia.com/Video_Games">Video Games<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron" height="0" width="0"></a>
+											<ul class="subnav"></ul>
+										</li>
+																												<li class="topNav Entertainment " data-index="25">
+											<a href="http://www.wikia.com/Entertainment">Entertainment<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron" height="0" width="0"></a>
+											<ul class="subnav"></ul>
+										</li>
+																												<li class="topNav Lifestyle " data-index="50">
+											<a href="http://www.wikia.com/Lifestyle">Lifestyle<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron" height="0" width="0"></a>
+											<ul class="subnav"></ul>
+										</li>
+																					</ul>
+					</li>
+				</ul>
+			</nav>
+			<ul id="AccountNavigation" class="AccountNavigation">
+
+	
+	
+	<li>
+		<a data-id="login" href="/wiki/Special:UserLogin?returnto=Launch_files_in_new_tabs_under_Windows&amp;type=login" rel="nofollow" class="ajaxLogin" accesskey="o">Log in<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron" width="0" height="0" /></a>		<div id="UserLoginDropdown" class="UserLoginDropdown subnav">
+<form action="/wiki/Special:UserLogin" method="post" name="" class="WikiaForm " >
+	<fieldset>
+					<div class="input-group error general-errors">
+				<div class="error-msg"></div>
+			</div>
+																<input type="hidden" name="loginToken" value="">
+																<input type="hidden" name="returnto" value="">
+																<input type="hidden" name="returntoquery" value="">
+																<div class="input-group required   ">
+																									<label>Username</label>
+							<input type="text" name="username" value=""  >
+
+												
+											</div>
+																<div class="input-group required   ">
+																									<label>Password</label>
+							<input type="password" name="password" value=""  >
+
+												
+											</div>
+																<div class="input-group    ">
+																									<a href="#" class="forgot-password">Forgot your password?</a>
+						
+											</div>
+																<div class="input-group    ">
+																									<label>
+								<input type="checkbox" name="keeploggedin" value="1"   > Stay logged in							</label>
+							
+												
+											</div>
+										</fieldset>
+
+	<div class="submits">
+									<input type="submit" value="Log in" class="" name="" >
+						</div>
+</form>
+	<div class="sso-login">
+		<div class="sso-login-divider">
+			<span>Or</span>
+		</div>
+
+		<a href="#" class="wikia-button wikia-button-facebook sso-login-facebook"  data-id="facebook" rel="tooltip" title="Click the button to log in with Facebook"><img alt="" class="sprite facebook" height="14" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="15" /> Connect</a>
+	</div></div>
+	</li>
+	<li>
+		<a data-id="register" href="/wiki/Special:UserLogin?returnto=Launch_files_in_new_tabs_under_Windows&amp;type=signup" rel="nofollow" class="ajaxRegister">Sign up</a>	</li>
+
+	
+</ul>
+						<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="banner-corner-left" width="0" height="0">
+			<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="banner-corner-right" width="0" height="0">
+		</div>
+	</div>
+</header>
+
+
+
+<section id="WikiaPage" class="WikiaPage">
+	<div id="WikiaPageBackground" class="WikiaPageBackground"></div>
+	<div class="WikiaPageContentWrapper">
+		
+		<div class="WikiaTopAds WikiaTopButtonLeft" id="WikiaTopAds"><!-- BEGIN SLOTNAME: TOP_LEADERBOARD -->
+<div id="TOP_LEADERBOARD" class="wikia-ad noprint default-height"><script type="text/javascript">	if(!window.adslots) {
+	       window.adslots = [];
+	}
+	window.adslots.push(["TOP_LEADERBOARD", "728x90", "DART", 25]);	if (window.wgLoadAdDriverOnLiftiumInit || (window.getTreatmentGroup && (getTreatmentGroup(EXP_AD_LOAD_TIMING) == TG_AS_WRAPPERS_ARE_RENDERED))) {
+		if (window.adDriverCanInit) {
+			AdDriverDelayedLoader.prepareSlots(AdDriverDelayedLoader.highLoadPriorityFloor);
+		}
+	}
+	</script></div><!-- END SLOTNAME: TOP_LEADERBOARD -->
+<!-- BEGIN SLOTNAME: TOP_BUTTON -->
+<div id="TOP_BUTTON" class="wikia-ad noprint"><script type="text/javascript">	if(!window.adslots) {
+	       window.adslots = [];
+	}
+	window.adslots.push(["TOP_BUTTON", "242x90", "DART", 24]);	if (window.wgLoadAdDriverOnLiftiumInit || (window.getTreatmentGroup && (getTreatmentGroup(EXP_AD_LOAD_TIMING) == TG_AS_WRAPPERS_ARE_RENDERED))) {
+		if (window.adDriverCanInit) {
+			AdDriverDelayedLoader.prepareSlots(AdDriverDelayedLoader.highLoadPriorityFloor);
+		}
+	}
+	</script></div><!-- END SLOTNAME: TOP_BUTTON -->
+</div>
+		<header id="WikiHeader" class="WikiHeader">
+	<h1 class="wordmark medium graphic font-cpmono">
+	<a accesskey="z" href="/wiki/Vim_Tips_Wiki">
+					<img src="http://images3.wikia.nocookie.net/__cb5/vim/images/8/89/Wiki-wordmark.png" alt="Vim Tips Wiki"  width="125" height="60" >
+			</a>
+</h1>
+	<nav>
+		<h1> Navigation</h1>
+		<ul>
+
+			<li>
+				<a href="/wiki/Vim_Tips_Wiki:Community_Portal">
+					Community portal				</a>
+			</li>
+			<li>
+				<a href="/wiki/Vim_Tips_Wiki:Todo">
+					To do				</a>
+			</li>
+			<li>
+				<a href="#">
+					Recently updated&nbsp;<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron" width="0" height="0">				</a>
+				<ul class="subnav">
+					<li>
+						<a href="/wiki/Launch_files_in_new_tabs_under_Windows">Launch files in new tabs under Windows</a>
+					</li>
+					<li>
+						<a href="/wiki/Compile_Java_with_Sun_JDK_javac">Compile Java with Sun JDK javac</a>
+					</li>
+					<li>
+						<a href="/wiki/Testing_Vim_variables_from_the_shell">Testing Vim variables from the shell</a>
+					</li>
+					<li>
+						<a href="/wiki/Using_VimBall_with_make">Using VimBall with make</a>
+					</li>
+					<li>
+						<a href="/wiki/Bisecting">Bisecting</a>
+					</li>
+					<li>
+						<a href="/wiki/Reload_the_same_file_in_different_encoding">Reload the same file in different encoding</a>
+					</li>
+					<li>
+						<a href="/wiki/How_to_make_fileencoding_work_in_the_modeline">How to make fileencoding work in the modeline</a>
+					</li>
+
+				</ul>
+			</li>
+			<li>
+				<a href="/wiki/Category:VimTip">
+					Popular tips&nbsp;<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron" width="0" height="0">				</a>
+				<ul class="subnav">
+					<li>
+						<a href="/wiki/Search_and_replace">Search and replace</a>
+					</li>
+					<li>
+						<a href="/wiki/Best_Vim_Tips">Best Vim Tips</a>
+					</li>
+					<li>
+						<a href="/wiki/Indenting_source_code">Indenting source code</a>
+					</li>
+					<li>
+						<a href="/wiki/File_format">File format</a>
+					</li>
+					<li>
+						<a href="/wiki/Undo_and_Redo">Undo and Redo</a>
+					</li>
+					<li>
+						<a href="/wiki/Open_vimrc_file">Open vimrc file</a>
+					</li>
+					<li>
+						<a href="/wiki/Converting_tabs_to_spaces">Converting tabs to spaces</a>
+					</li>
+
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div class="buttons">
+		<a href="/wiki/Special:Random" title="Random Page" accesskey="x" class="wikia-button secondary" data-id="randompage"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" height="0" width="0" class="sprite random" /> Random Page</a>		<a href="/wiki/Special:WikiActivity" title="Wiki Activity" accesskey="g" class="wikia-button secondary" data-id="wikiactivity"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" height="0" width="0" class="sprite activity" /> Wiki Activity</a>	</div>
+	<div style="position: absolute; top: -1000px">
+		<a href="/wiki/Special:Watchlist" title="Special:Watchlist" accesskey="l">Watchlist</a>		<a href="/wiki/Special:RecentChanges" title="Special:RecentChanges" accesskey="r">Recent changes</a>	</div>
+		<img class="shadow-mask" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="0" height="0">
+</header>
+
+		
+		
+		
+		
+		<article id="WikiaMainContent" class="WikiaMainContent">
+			<header id="WikiaPageHeader" class="WikiaPageHeader">
+	
+	<ul class="commentslikes">
+	<li class="comments">
+		<span class="commentsbubble">0</span>
+		<a href="/wiki/Talk:Launch_files_in_new_tabs_under_Windows" rel="nofollow" data-id="comment" title="Be the first to discuss this page" accesskey="t">Talk</a>
+	</li>
+	<li class="likes">
+		<div class="fb-like" data-href="http://vim.wikia.com/wiki/Launch_files_in_new_tabs_under_Windows" data-send="false" data-layout="button_count" data-width="50" data-show-faces="false" data-colorscheme="light"></div>
+	</li>
+</ul>
+
+	<h1>Launch files in new tabs under Windows</h1>
+
+<nav class="wikia-menu-button" >
+	<a accesskey="e" href="/wiki/Launch_files_in_new_tabs_under_Windows?action=edit" data-id="edit" id="ca-edit">
+		<img alt="" class="sprite edit-pencil" height="16" src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" width="22" /> Edit	</a>
+
+	<span class="drop">
+		<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="chevron">
+	</span>
+	<ul class="WikiaMenuElement">
+		<li>
+			<a href="/wiki/Launch_files_in_new_tabs_under_Windows?action=history" accesskey="h" data-id="history" id="ca-history">History</a>
+		</li>
+	</ul>
+</nav>
+</header>
+
+
+			
+			<div id="WikiaArticle" class="WikiaArticle">
+								<div class="home-top-right-ads">
+								</div>
+
+
+				
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div><b><a  class="text" href="http://vim.wikia.com/wiki/Launch_files_in_new_tabs_under_Windows">Tip 1440</a></b> <a  class="text" href="http://vim.wikia.com/wiki/Launch_files_in_new_tabs_under_Windows?printable=yes">Printable</a> <a  class="text" href="http://vim.wikia.com/wiki/Launch_files_in_new_tabs_under_Windows?useskin=monobook">Monobook</a> <a href="/wiki/VimTip1439" title="VimTip1439" class="mw-redirect"><small>Previous</small></a> <a href="/wiki/VimTip1454" title="VimTip1454" class="mw-redirect"><small>Next</small></a>
+<p><b>created</b>&#160;2006&#32;&#183; <b>complexity</b>&#160;basic&#32;&#183; <b>author</b>&#160;Xu Song&#32;&#183; <b>version</b>&#160;n/a
+</p>
+<hr />
+</div>
+<p>Many text editors automatically launch new files in tabs, rather than use a separate window for each new file. Here's how to make Vim behave that way under Microsoft Windows.  (For split windows instead of tabs, see gvimt script below)
+</p>
+<table id="toc" class="toc"><tr><td><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a rel="nofollow" href="#Using_file_associations"><span class="tocnumber">1</span> <span class="toctext">Using file associations</span></a></li>
+<li class="toclevel-1 tocsection-2"><a rel="nofollow" href="#Using_the_Windows_Send_To_menu"><span class="tocnumber">2</span> <span class="toctext">Using the Windows <i>Send To</i> menu</span></a></li>
+<li class="toclevel-1 tocsection-3"><a rel="nofollow" href="#Using_different_gvim_instances_for_different_file_types"><span class="tocnumber">3</span> <span class="toctext">Using different gvim instances for different file types</span></a></li>
+<li class="toclevel-1 tocsection-4"><a rel="nofollow" href="#Using_the_registry"><span class="tocnumber">4</span> <span class="toctext">Using the registry</span></a></li>
+<li class="toclevel-1 tocsection-5"><a rel="nofollow" href="#Using_an_auto_command"><span class="tocnumber">5</span> <span class="toctext">Using an auto command</span></a></li>
+<li class="toclevel-1 tocsection-6"><a rel="nofollow" href="#gvimt_-_script_to_open_new_files_in_gvim_in_new_tabs.2C_splits_or_vertical_split"><span class="tocnumber">6</span> <span class="toctext">gvimt - script to open new files in gvim in new tabs, splits or vertical split</span></a></li>
+<li class="toclevel-1 tocsection-7"><a rel="nofollow" href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-8"><a rel="nofollow" href="#Comments"><span class="tocnumber">8</span> <span class="toctext">Comments</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a rel="nofollow" href="#Using_the_Windows_Open_or_Double-Click_to_open_files_in_gvim_tabs"><span class="tocnumber">8.1</span> <span class="toctext">Using the Windows Open or Double-Click to open files in gvim tabs</span></a></li>
+</ul>
+</li>
+</ul>
+</td></tr></table>
+<h3><span class="mw-headline" id="Using_file_associations">Using <a href="/wiki/Windows_file_associations" title="Windows file associations">file associations</a></span><span class="editsection"><a href="/wiki/Launch_files_in_new_tabs_under_Windows?action=edit&amp;section=1" title="Edit Using file associations section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h3>
+<p>To automatically open a file in a Vim tab with a double-click or other "Open" action, you need to set up <a href="/wiki/Windows_file_associations" title="Windows file associations">file associations</a>. Open a command prompt window (Start, Run <code>cmd.exe</code>). This example uses C source-code files &#8211; modify the commands for whatever file types you want. At command prompt, type (you may need to change the path to suit your system):
+</p>
+<pre>
+ftype code=&quot;C:\Program Files\Vim\vim72\gvim.exe&quot; --remote-tab-silent &quot;%1&quot;
+assoc .c=code
+assoc .h=code
+</pre>
+<p>Now, double-clicking on .c or .h files will open them in tabs in a single instance of gvim.
+</p><p>To make Vim the editor for all text file types (as defined by MS Windows) try
+</p>
+<pre>
+ftype txtfile=&quot;C:\Program Files\Vim\vim72\gvim.exe&quot; --remote-tab-silent &quot;%1&quot;
+</pre>
+<h3><span class="mw-headline" id="Using_the_Windows_Send_To_menu">Using the Windows <i>Send To</i> menu</span><span class="editsection"><a href="/wiki/Launch_files_in_new_tabs_under_Windows?action=edit&amp;section=2" title="Edit Using the Windows Send To menu section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h3>
+<p>Obviously you can't enter file associations for every file you'll ever open in Vim. To provide an "open in tabs" capability for files without an association, you can <a href="/wiki/Add_Vim_to_Windows_Send_To_menu" title="Add Vim to Windows Send To menu">add an entry to your "Send To" context menu</a>, as follows:
+</p>
+<ol><li>Click Start, Run then type <code>SendTo</code> and press Enter. If the <i>Profile path</i> for your user name has been changed, you may need to run <code>%USERPROFILE%\SendTo</code> rather than just <code>SendTo</code>. For Vista go to <code>%APPDATA%\Microsoft\Windows\SendTo</code>.
+</li><li>The SendTo directory should now be open. It contains the shortcuts in your <i>Send To</i> context menu. Right-click the SendTo window and add a new shortcut to gvim.
+</li><li>Edit the 'Target' box in the Properties of the gvim shortcut to read (you may need to change this for your path to gvim): <pre>&quot;C:\Program Files\Vim\vim71\gvim.exe&quot; --remote-tab-silent</pre>.
+</li></ol>
+<p>In Windows Explorer, right-click one or more files, and select <b>Send To</b>, <b>gvim</b> in the context menu. You can repeat this to open other files in new tabs in the same Vim instance.
+</p>
+<h3><span class="mw-headline" id="Using_different_gvim_instances_for_different_file_types">Using different gvim instances for different file types</span><span class="editsection"><a href="/wiki/Launch_files_in_new_tabs_under_Windows?action=edit&amp;section=3" title="Edit Using different gvim instances for different file types section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h3>
+<p>If wanted, you can define file associations so that certain file types are opened in one instance of gvim, while others are opened in a different instance.
+</p><p>For example, the following will cause .log and .txt files to be opened in an instance of gvim named TXTVIM, while .c and .h files would be opened in another instance using the <i>code</i> example given earlier.
+</p>
+<pre>
+ftype txtfile=&quot;C:\Program Files\Vim\vim71\gvim.exe&quot; --servername TXTVIM --remote-tab-silent &quot;%1&quot;
+assoc .log=txtfile
+assoc .txt=txtfile
+</pre>
+<p>SendTo menu items for specific Vim instances can be created in the same way, by adding a <code>--servername</code> option before the <code>--remote-tab-silent</code> in the target for the shortcut created in the section above.
+</p><p>Note that the .txt extension defaults to the txtfile association on Windows. In fact, many extensions are already associated with txtfile, so just setting the ftype as above will automatically set the correct behavior for several filetypes, more of which (such as .log) can be added with <code>assoc</code> as shown.
+</p>
+To see a list of current associations on your system, type <code>assoc</code> with no arguments in a cmd window. Or, for easier viewing, read the list into Vim with <pre>:r&#160;!assoc</pre>
+<h3><span class="mw-headline" id="Using_the_registry">Using the registry</span><span class="editsection"><a href="/wiki/Launch_files_in_new_tabs_under_Windows?action=edit&amp;section=4" title="Edit Using the registry section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h3>
+<i><div style="color:red;font-size:110%;"><b>WARNING:</b> Editing your Windows registry may cause unintended side effects that render your system inoperable. Although this tip has worked in the past for some people, there is no guarantee that it will work for you. Use with caution, and at your own risk.</div></i>
+<p>Save the following in a .reg text file:
+</p>
+<pre>
+Windows Registry Editor Version 5.00
+[HKEY_CLASSES_ROOT\*\Shell\Tab Edit with &amp;Vim]
+[HKEY_CLASSES_ROOT\*\Shell\Tab Edit with &amp;Vim\command]
+@=&quot;\&quot;C:\\Program Files\\Vim\\vim73\\gvim.exe\&quot; -p --remote-tab-silent \&quot;%1\&quot; \&quot;%*\&quot;&quot;
+</pre>
+<p>Note: The .reg files assume Vim 7.3 was installed in the default location &#8211; modify the path to suit your system, if needed.
+</p><p>Merge this key into the registry by double clicking the file created above. 
+</p><p>If you have set the default editor to gvim for your .c and .cpp files by using the context menu's Open With-&gt;Vim (and checking the 'Always use the selected program to open this kind of file'), then you need to modify the following registry keys to make sure every file is opened in a separate tab in the same instance of Vim.
+</p>
+<pre>
+For .c files:
+# HKCR\c_auto_file\shell\edit\command\Default -- change the value from C:\Program Files\Vim\vim70\gvim.exe &quot;%1&quot; to C:\Program Files\Vim\vim70\gvim.exe -p --remote-tab-silent &quot;%1&quot;
+# HKLM\software\classes\c_auto_file\shell\edit\command\Default -- change the value from C:\Program Files\Vim\vim70\gvim.exe &quot;%1&quot; to C:\Program Files\Vim\vim70\gvim.exe -p --remote-tab-silent &quot;%1&quot;
+
+Similarly for .cpp files:
+# HKCR\cpp_auto_file\shell\edit\command\Default -- change the value from C:\Program Files\Vim\vim70\gvim.exe &quot;%1&quot; to C:\Program Files\Vim\vim70\gvim.exe -p --remote-tab-silent &quot;%1&quot;
+# HKLM\software\classes\cpp_auto_file\shell\edit\command\Default -- change the value from C:\Program Files\Vim\vim70\gvim.exe &quot;%1&quot; to C:\Program Files\Vim\vim70\gvim.exe -p --remote-tab-silent &quot;%1&quot;
+</pre>
+<p><br />
+This way if you are in a habit of opening files from the command prompt, every filename you type on the command prompt will open the corresponding file in a separate tab in the same Vim instance.
+</p><p>The above works for Windows XP. For Windows 2003, setting HKCR\Applications\gvim.exe\shell\edit\command\(Default) to C:\Program Files\Vim\Vim73\gvim.exe -p --remote-tab-silent "%1" should do it when opening from command prompt or using context menu's Open With-&gt;Vim (and checking 'Always use the selected program...')
+</p>
+<h3><span class="mw-headline" id="Using_an_auto_command">Using an auto command</span><span class="editsection"><a href="/wiki/Launch_files_in_new_tabs_under_Windows?action=edit&amp;section=5" title="Edit Using an auto command section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h3>
+<p>Another solution is to use autocmd:
+</p>
+<pre>
+autocmd BufReadPost * tab ball
+</pre>
+<p>This will make sure every additional file that you open is opened in a tab. I like using this with the&#160;:tj command because I store each file name as a tag so I can easily jump to a file name by typing ":tj foo.php" and it will present me with a list of files named foo.php and then open my selection in a new tab. The&#160;:tabfind doesn't work well because it immediately opens the first file name that matches instead of presenting me with a list.
+</p><p>This might break when using the 'Diff with Vim' right-click, so the above command can be changed to this:
+</p>
+<pre>
+if (&amp;diff==0)
+   &#160;:autocmd BufReadPost * tab ball
+endif
+</pre>
+<p>The command above allows the following two-fold functionality when 2 files are selected (using Ctrl key) and right-click options menu opens:
+</p>
+<ol><li> clicking 'Open with single Vim' opens single Vim Window, each file is in its own tab
+</li><li> clicking 'Diff with Vim' opens single Vim Window, DIFFing both files
+</li></ol>
+<p>The benefit of this approach is that there is no need to play with
+the registry files.
+</p>
+<h3><span class="mw-headline" id="gvimt_-_script_to_open_new_files_in_gvim_in_new_tabs.2C_splits_or_vertical_split">gvimt - script to open new files in gvim in new tabs, splits or vertical split</span><span class="editsection"><a href="/wiki/Launch_files_in_new_tabs_under_Windows?action=edit&amp;section=6" title="Edit gvimt - script to open new files in gvim in new tabs, splits or vertical split section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h3>
+<p><a href="http://www.vim.org/scripts/script.php?script_id=4214" rel="nofollow" class="external exitstitial">http://www.vim.org/scripts/script.php?script_id=4214</a>
+</p><p>If you want to open many files at once or open them in splits instead of tabs, you can use this script instead.
+</p><p>It addresses these problems with the simpler solutions above:
+</p>
+<ul><li> There is no --remote-split parameter so a different approach is needed for opening files in a new split window.  --remote-send can be used to send an arbitary command for this, but unlike --remote-tab it will not open a new instance of gvim if one doesn't already exist.
+</li><li> If you select multiple files and use the Windows context menu, each file gets its own invocation of the command.  gvim does not handle several simultaneous --remote-tab commands well.
+</li><li> The SendTo menu does pass all the selected files to one command, but it is an extra click on the right menu to get there, so it is nice to use the Context menu.
+</li></ul>
+<p>The command it uses to open split windows could probably be used by itself in the techniques above.
+</p>
+<pre>
+gvim --remote-send &quot;:split filename&lt;CR&gt;&quot;
+</pre>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="editsection"><a href="/wiki/Launch_files_in_new_tabs_under_Windows?action=edit&amp;section=7" title="Edit See also section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h2>
+<ul><li><a href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=clientserver" rel="nofollow" class="external exitstitial">&#58;help&#160;clientserver</a>
+</li><li><a href="http://vimdoc.sourceforge.net/cgi-bin/help?tag=--servername" rel="nofollow" class="external exitstitial">&#58;help&#160;--servername</a>
+</li><li><a href="/wiki/Associate_files_with_no_extension_to_Vim_under_Windows" title="Associate files with no extension to Vim under Windows">Associate files with no extension to Vim under Windows</a>
+</li><li><a href="/wiki/Make_vim_the_editor_for_files_with_unregistered_extensions_in_Windows" title="Make vim the editor for files with unregistered extensions in Windows">Make vim the editor for files with unregistered extensions in Windows</a>
+</li><li><a href="/wiki/Launch_files_in_new_tabs_under_Unix" title="Launch files in new tabs under Unix">Launch files in new tabs under Unix</a>
+</li></ul>
+<h2><span class="mw-headline" id="Comments">Comments</span><span class="editsection"><a href="/wiki/Launch_files_in_new_tabs_under_Windows?action=edit&amp;section=8" title="Edit Comments section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h2>
+<p>Windows 7 (and Vista too, I believe) has per-user associations that override the global associations. This seems to be a bit messy, ftype/assoc had no effect for me because I had already chosen to open .c files with VIM through Windows Explorer. The solution was to search for ".c" in the registry and delete a key named ".c" somewhere in HKEY_CURRENT_USER, then use ftype/assoc.
+</p>
+<dl><dd>Ugh, I did not know that. This sounds like the same keys which you can use intentionally to set up <a href="/wiki/Windows_file_associations#User-specific_file_associations" title="Windows file associations">user-specific associations</a> on any modern Windows. Arguably Windows is doing The Right Thing by setting them up on a per-user basis by default. But they should also have modified ftype and assoc to do the same thing.
+</dd><dd>If you're on a multi-user system, you might consider using the registry keys I just linked to rather than using ftype and assoc, rather than just deleting them.
+</dd><dd>--<a href="/wiki/User:Fritzophrenic" title="User:Fritzophrenic">Fritzophrenic</a> 14:14, September 8, 2011 (UTC)
+</dd></dl>
+<hr />
+<p>An annonymous user added the following below <a href="#Using_file_associations">#Using file associations</a>:
+</p>
+<div style="border:1px solid black;">
+<h3><span class="mw-headline" id="Using_the_Windows_Open_or_Double-Click_to_open_files_in_gvim_tabs">Using the Windows Open or Double-Click to open files in gvim tabs</span><span class="editsection"><a href="/wiki/Launch_files_in_new_tabs_under_Windows?action=edit&amp;section=9" title="Edit Using the Windows Open or Double-Click to open files in gvim tabs section"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit-pencil" />Edit</a></span></h3>
+<p>To provide an "open in tabs" capability for files without an association on Double-Click or Open menu one need to edit registry as follows:
+</p>
+<ol><li>Click Start, Run then type <code>regedit</code> and press Enter.
+</li><li>Edit the registry HKEY_CLASSES_ROOT\Applications\gvim.exe\open\command (which is the alias for HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Applications\gvim.exe\shell\edit\command) and set the Value Data to
+</li></ol>
+<ul><li> <pre>C:\Program Files\Vim\vim72\gvim.exe --remote-tab-silent &quot;%1&quot;</pre> if you want file to open in new tab
+</li><li> <pre>C:\Program Files\Vim\vim72\gvim.exe --remote-silent &quot;%1&quot;</pre> if you want to open file in new buffer
+</li></ul>
+<p>The path might need to be modified for the location of gvim on your machine.
+</p><p>In Windows Explorer, double-click one or more files and they should open in tabs in gvim!
+</p>
+</div>
+<p>I'm OK with this content (if it works) but it needs explanation. How does it work? Why would you want to use this instead of file associations? What does it do? Does it launch ALL files in Vim, or just files without an association already set up?
+</p><p>It also needs a better, more descriptive title. The file associations method also allows you to double-click or use the "open" context menu item to open a file, what does this method do differently?
+</p><p>Finally, it has become our practice, when suggesting a registry edit, to place the <a href="/wiki/Template:RegistryWarning" title="Template:RegistryWarning">Registry Warning template</a> before the suggested registry tweak. Do this simply by adding {{RegistryWarning}} prior to the registry entry instructions.
+</p><p>Thanks for the addition, annonymous user, please feel free to help fix it up!
+</p><p>--<a href="/wiki/User:Fritzophrenic" title="User:Fritzophrenic">Fritzophrenic</a> 16:14, November 6, 2009 (UTC)
+</p>
+<hr />
+<p>I don't think the <a href="#Using_an_auto_command">#Using an auto command</a> section belongs in this tip. This tip is about getting files to launch in an existing Vim in new tabs when selecting them externally. Using an autocmd to just split off into a new tab only works if you're already using Vim and use an&#160;:e command, in which case the proper solution would be to just use tab-based commands instead, so actually I think that whole section is misguided.
+</p><p>Or I guess it works when you're launching Vim with multiple files. From the command-line you'd use the -p flag. Using the send-to method as discussed in this tip, or editing the registry to pass the -p flag as also discussed in this tip, is probably a better way around that too if you want to use the context menu.
+</p><p>--<a href="/wiki/User:Fritzophrenic" title="User:Fritzophrenic">Fritzophrenic</a> (<a href="/wiki/User_talk:Fritzophrenic" title="User talk:Fritzophrenic">talk</a>) 15:02, August 29, 2012 (UTC)
+</p>
+<!-- 
+NewPP limit report
+Preprocessor node count: 248/1000000
+Post-expand include size: 2017/2097152 bytes
+Template argument size: 167/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key vim:pcache:idhash:4215-0!*!0!!en!*!* and timestamp 20120913131401 -->
+	<nav class="RelatedPagesModule noprint">
+		<h2>Read more</h2>
+		<ul>
+					<li>
+								<div class="articleSnippet"><p>You can quickly jump to a specific tab page using the command with a count, but it can be...</p></div>
+								<a href="/wiki/Show_tab_number_in_your_tab_line" class="more">Show tab number in your tab line</a>
+			</li>
+					<li>
+								<div class="articleSnippet"><p>If you want to execute an external command on Windows, you need to know one trick. Let's say...</p></div>
+								<a href="/wiki/External_commands_on_Windows" class="more">External commands on Windows</a>
+			</li>
+					<li>
+								<div class="articleSnippet"><p>VisVim only works for old versions of Visual Studio. For using vim with modern versions of...</p></div>
+								<a href="/wiki/VisVim_for_Visual_Studio" class="more">VisVim for Visual Studio</a>
+			</li>
+				</ul>
+	</nav>
+<noscript><link rel="stylesheet" href="http://slot2.images.wikia.nocookie.net/__cb59990/common/extensions/wikia/ImageLazyLoad/css/ImageLazyLoadNoScript.css" /></noscript><script>JSSnippetsStack.push({dependencies:[],getLoaders:function(){return [$.loadFacebookAPI]},callback:function(json){window.onFBloaded(json)},id:"window.onFBloaded"})</script></div><div class="printfooter">
+Retrieved from "<a href="http://vim.wikia.com/wiki/Launch_files_in_new_tabs_under_Windows?oldid=35154">http://vim.wikia.com/wiki/Launch_files_in_new_tabs_under_Windows?oldid=35154</a>"</div>
+
+			</div>
+
+			<nav id="WikiaArticleCategories" class="WikiaArticleCategories">
+	<h1>Related Categories</h1>
+	<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories" rel="nofollow">Categories</a>: <ul><li><a href="/wiki/Category:VimTip" title="Category:VimTip">VimTip</a></li><li><a href="/wiki/Category:File_Handling" title="Category:File Handling">File Handling</a></li><li><a href="/wiki/Category:Tabs" title="Category:Tabs">Tabs</a></li><li><a href="/wiki/Category:Windows" title="Category:Windows">Windows</a></li><li><a href="/wiki/Category:Splits" title="Category:Splits" class="newcategory">Splits</a></li></ul></div> <div id="csAddCategorySwitch" class="noprint" style="background:#DDD;position:relative;float:left;border: 1px solid #BBB;-moz-border-radius:3px;-webkit-border-radius:3px;padding:0 5px;line-height: 16px;"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite-small add" /><a href="#" onfocus="this.blur();" style="color:#000;font-size:0.85em;text-decoration:none;display:inline-block;" rel="nofollow">Add category</a></div></div></nav>
+			
+			
+			<div id="WikiaArticleBottomAd" class="noprint">
+				<!-- BEGIN SLOTNAME: PREFOOTER_LEFT_BOXAD -->
+<div id="PREFOOTER_LEFT_BOXAD" class="wikia-ad noprint default-height"><script type="text/javascript">	if(!window.adslots) {
+	       window.adslots = [];
+	}
+	window.adslots.push(["PREFOOTER_LEFT_BOXAD", "300x250", "DART", 1]);</script></div><!-- END SLOTNAME: PREFOOTER_LEFT_BOXAD -->
+				<!-- BEGIN SLOTNAME: PREFOOTER_RIGHT_BOXAD -->
+<div id="PREFOOTER_RIGHT_BOXAD" class="wikia-ad noprint default-height"><script type="text/javascript">	if(!window.adslots) {
+	       window.adslots = [];
+	}
+	window.adslots.push(["PREFOOTER_RIGHT_BOXAD", "300x250", "DART", 1]);</script></div><!-- END SLOTNAME: PREFOOTER_RIGHT_BOXAD -->
+			</div>
+
+		</article><!-- WikiaMainContent -->
+
+	<div id="WikiaRail" class="WikiaRail">
+
+	
+<form id="WikiaSearch" class="WikiaSearch" action="index.php?title=Special:Search" method="get">
+	<input type="text" name="search" placeholder="Search this wiki" autocomplete="off" accesskey="f" value="">
+	<input type="hidden" name="fulltext" value="Search">
+	<input type="submit">
+	<button class="wikia-button"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite search" height="17" width="21"></button>
+</form>
+<section class="WikiaPagesOnWikiModule module">
+	<h1>Pages on Vim Tips Wiki</h1>
+	<a href="/wiki/Special:CreatePage" title="Create a new page on this wiki" class="wikia-button createpage"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" height="0" width="0" class="sprite new" /> Add a Page</a>	<div class="tally">
+		<em>1,590</em><span>pages on<br /> this wiki</span>	</div>
+</section>
+<!-- BEGIN SLOTNAME: TOP_RIGHT_BOXAD -->
+<div id="TOP_RIGHT_BOXAD" class="wikia-ad noprint default-height"><script type="text/javascript">	if(!window.adslots) {
+	       window.adslots = [];
+	}
+	window.adslots.push(["TOP_RIGHT_BOXAD", "300x250", "DART", 20]);	if (window.wgLoadAdDriverOnLiftiumInit || (window.getTreatmentGroup && (getTreatmentGroup(EXP_AD_LOAD_TIMING) == TG_AS_WRAPPERS_ARE_RENDERED))) {
+		if (window.adDriverCanInit) {
+			AdDriverDelayedLoader.prepareSlots(AdDriverDelayedLoader.highLoadPriorityFloor);
+		}
+	}
+	</script></div><div class="SelfServeUrl">Advertisement | <a href="http://mediakit.wikia.com/wiki/Media_Kit_Wiki">Your ad here</a></div>
+<!-- END SLOTNAME: TOP_RIGHT_BOXAD -->
+<!-- BEGIN SLOTNAME: TOP_RIGHT_BUTTON -->
+<div id="TOP_RIGHT_BUTTON" class="wikia-ad noprint"><script type="text/javascript">	if(!window.adslots) {
+	       window.adslots = [];
+	}
+	window.adslots.push(["TOP_RIGHT_BUTTON", "300x100", "DART", 20]);	if (window.wgLoadAdDriverOnLiftiumInit || (window.getTreatmentGroup && (getTreatmentGroup(EXP_AD_LOAD_TIMING) == TG_AS_WRAPPERS_ARE_RENDERED))) {
+		if (window.adDriverCanInit) {
+			AdDriverDelayedLoader.prepareSlots(AdDriverDelayedLoader.highLoadPriorityFloor);
+		}
+	}
+	</script></div><!-- END SLOTNAME: TOP_RIGHT_BUTTON -->
+<section class="LatestPhotosModule module" id="LatestPhotosModule">
+	<h1 class="tight">Latest Photos</h1>
+	<a href="/wiki/Special:Upload" title="Add a photo to this wiki" class="wikia-button upphotoslogin" rel="tooltip"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" height="0" width="0" class="sprite photo" /> Add a Photo</a>	<div class="tally counter">
+		<em>88</em><span class="fixedwidth">photos on this wiki</span>	</div>
+
+			<a href="#" class="previous"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="latest-images-left" height="0" width="0"></a>
+		<a href="#" class="next"><img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="latest-images-right" height="0" width="0"></a>
+	<div class="carousel-container">
+		<div>
+			<ul class="carousel">
+			<li class="thumbs"><a class="image" data-ref="File:Narrowing.gif" href="/wiki/File:Narrowing.gif">
+						<img class="thumbimage" height="82" width="82" src="http://images1.wikia.nocookie.net/__cb59094/vim/images/thumb/c/c8/Narrowing.gif/82px-73%2C230%2C0%2C156-Narrowing.gif" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Ryanking" title="User:Ryanking">Ryanking</a><br/>
+			<time class="timeago" datetime="2012-09-12T15:03:05Z">2012-09-12T15:03:05Z</time><br/>
+
+					</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Rking-vim.jpg" href="/wiki/File:Rking-vim.jpg">
+						<img class="thumbimage" height="82" width="82" src="http://images3.wikia.nocookie.net/__cb59094/vim/images/thumb/c/c5/Rking-vim.jpg/82px-129%2C1154%2C0%2C1024-Rking-vim.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Ryanking" title="User:Ryanking">Ryanking</a><br/>
+			<time class="timeago" datetime="2012-09-12T13:24:10Z">2012-09-12T13:24:10Z</time><br/>
+
+						Posted in			<a href="/wiki/User:Ryanking" title="User:Ryanking" class="wikia-gallery-item-posted">User:Ryanking</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Haidang001.jpg" href="/wiki/File:Haidang001.jpg">
+						<img class="thumbimage" height="82" width="82" src="http://images4.wikia.nocookie.net/__cb59094/vim/images/thumb/7/7a/Haidang001.jpg/82px-2%2C158%2C0%2C155-Haidang001.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Haidang001" title="User:Haidang001">Haidang001</a><br/>
+			<time class="timeago" datetime="2012-09-06T14:05:02Z">2012-09-06T14:05:02Z</time><br/>
+
+					</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Printsc4.jpg" href="/wiki/File:Printsc4.jpg">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images1.wikia.nocookie.net/__cb59094/vim/images/thumb/c/c3/Printsc4.jpg/82px-206%2C937%2C0%2C730-Printsc4.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Luochen1990" title="User:Luochen1990">Luochen1990</a><br/>
+			<time class="timeago" datetime="2012-08-22T17:42:16Z">2012-08-22T17:42:16Z</time><br/>
+
+						Posted in			<a href="/wiki/Script:4176" title="Script:4176" class="wikia-gallery-item-posted">Script:4176</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Printsc3.jpg" href="/wiki/File:Printsc3.jpg">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images1.wikia.nocookie.net/__cb59094/vim/images/thumb/2/29/Printsc3.jpg/82px-206%2C937%2C0%2C730-Printsc3.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Luochen1990" title="User:Luochen1990">Luochen1990</a><br/>
+			<time class="timeago" datetime="2012-08-22T17:41:36Z">2012-08-22T17:41:36Z</time><br/>
+
+						Posted in			<a href="/wiki/Script:4176" title="Script:4176" class="wikia-gallery-item-posted">Script:4176</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Printsc2.jpg" href="/wiki/File:Printsc2.jpg">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images4.wikia.nocookie.net/__cb59094/vim/images/thumb/4/49/Printsc2.jpg/82px-206%2C937%2C0%2C730-Printsc2.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Luochen1990" title="User:Luochen1990">Luochen1990</a><br/>
+			<time class="timeago" datetime="2012-08-22T17:41:21Z">2012-08-22T17:41:21Z</time><br/>
+
+						Posted in			<a href="/wiki/Script:4176" title="Script:4176" class="wikia-gallery-item-posted">Script:4176</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Printsc1.jpg" href="/wiki/File:Printsc1.jpg">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images2.wikia.nocookie.net/__cb59094/vim/images/thumb/9/9c/Printsc1.jpg/82px-206%2C937%2C0%2C730-Printsc1.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Luochen1990" title="User:Luochen1990">Luochen1990</a><br/>
+			<time class="timeago" datetime="2012-08-22T17:41:07Z">2012-08-22T17:41:07Z</time><br/>
+
+						Posted in			<a href="/wiki/Script:4176" title="Script:4176" class="wikia-gallery-item-posted">Script:4176</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Pedexplode.png" href="/wiki/File:Pedexplode.png">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images3.wikia.nocookie.net/__cb59094/vim/images/thumb/4/41/Pedexplode.png/82px-15%2C164%2C0%2C148-Pedexplode.png" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Videokunst" title="User:Videokunst">Videokunst</a><br/>
+			<time class="timeago" datetime="2012-07-29T13:01:56Z">2012-07-29T13:01:56Z</time><br/>
+
+						Posted in			<a href="/wiki/User:Videokunst" title="User:Videokunst" class="wikia-gallery-item-posted">User:Videokunst</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Photo on 3-31-12 at 11.32 AM.jpg" href="/wiki/File:Photo_on_3-31-12_at_11.32_AM.jpg">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images1.wikia.nocookie.net/__cb59094/vim/images/thumb/7/78/Photo_on_3-31-12_at_11.32_AM.jpg/82px-181%2C902%2C0%2C720-Photo_on_3-31-12_at_11.32_AM.jpg" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Maxxict" title="User:Maxxict">Maxxict</a><br/>
+			<time class="timeago" datetime="2012-07-26T21:26:55Z">2012-07-26T21:26:55Z</time><br/>
+
+						Posted in			<a href="/wiki/User:Maxxict" title="User:Maxxict" class="wikia-gallery-item-posted">User:Maxxict</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Vimdiff-two-way.png" href="/wiki/File:Vimdiff-two-way.png">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images3.wikia.nocookie.net/__cb59094/vim/images/thumb/9/9e/Vimdiff-two-way.png/82px-270%2C789%2C0%2C518-Vimdiff-two-way.png" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Whiteinge" title="User:Whiteinge">Whiteinge</a><br/>
+			<time class="timeago" datetime="2012-06-05T01:59:34Z">2012-06-05T01:59:34Z</time><br/>
+
+						Posted in			<a href="/wiki/A_better_Vimdiff_Git_mergetool" title="A better Vimdiff Git mergetool" class="wikia-gallery-item-posted">A better Vimdiff Git mergetool</a>				</span>
+		</li>
+			<li class="thumbs"><a class="image" data-ref="File:Vimdiff-default.png" href="/wiki/File:Vimdiff-default.png">
+						<img class="thumbimage" height="82" width="82" src='data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D' data-src="http://images4.wikia.nocookie.net/__cb59094/vim/images/thumb/0/01/Vimdiff-default.png/82px-313%2C1056%2C0%2C742-Vimdiff-default.png" />
+		</a>
+
+		<span class="thumbcaption">
+			by <a href="/wiki/User:Whiteinge" title="User:Whiteinge">Whiteinge</a><br/>
+			<time class="timeago" datetime="2012-06-05T01:59:21Z">2012-06-05T01:59:21Z</time><br/>
+
+						Posted in			<a href="/wiki/A_better_Vimdiff_Git_mergetool" title="A better Vimdiff Git mergetool" class="wikia-gallery-item-posted">A better Vimdiff Git mergetool</a>				</span>
+		</li>
+				<li class="see-all">
+			<a href="/wiki/Special:NewFiles" title="Special:NewFiles">See all photos</a>			<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" data-src="http://slot2.images.wikia.nocookie.net/__cb59990/common/skins/oasis/images/empty_gallery.png" />
+		</li>
+				</ul>
+		</div>
+	</div>
+	<a href="/wiki/Special:NewFiles" title="Special:NewFiles" class="more">See more ></a>
+
+</section>
+<!-- BEGIN SLOTNAME: MIDDLE_RIGHT_BOXAD -->
+<!-- Null Ad from AdEngine::getPlaceHolderIframe--><!-- Null Ad. Reason: Slot is disabled, slotname=MIDDLE_RIGHT_BOXAD --><!-- END SLOTNAME: MIDDLE_RIGHT_BOXAD -->
+<section class="WikiaActivityModule module ">
+	<h1 class="activity-heading">Recent Wiki Activity</h1>
+	<ul>
+		<li>
+			<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit" height="20" width="20">
+			<em><a href="/wiki/Launch_files_in_new_tabs_under_Windows">Launch files in new tabs under Windows</a></em>
+			<div class="edited-by">edited by <a href="/wiki/User:Lessthanideal">Lessthanideal</a> 1 hour ago</div>
+		</li>
+		<li>
+			<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit" height="20" width="20">
+			<em><a href="/wiki/Compile_Java_with_Sun_JDK_javac">Compile Java with Sun JDK javac</a></em>
+			<div class="edited-by">edited by <a href="/wiki/Special:Contributions/71.195.221.197">A Wikia contributor</a> 10 hours ago</div>
+		</li>
+		<li>
+			<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit" height="20" width="20">
+			<em><a href="/wiki/Testing_Vim_variables_from_the_shell">Testing Vim variables from the shell</a></em>
+			<div class="edited-by">edited by <a href="/wiki/Special:Contributions/188.27.92.44">A Wikia contributor</a> 11 hours ago</div>
+		</li>
+		<li>
+			<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite edit" height="20" width="20">
+			<em><a href="/wiki/Using_VimBall_with_make">Using VimBall with make</a></em>
+			<div class="edited-by">edited by <a href="/wiki/Special:Contributions/188.27.92.44">A Wikia contributor</a> 12 hours ago</div>
+		</li>
+	</ul>
+
+			<a href="/wiki/Special:WikiActivity" title="Special:WikiActivity" class="more">See more ></a>	</section>
+<section class="ChatModule module ChatModuleUninitialized"></section><!-- BEGIN SLOTNAME: LEFT_SKYSCRAPER_2 -->
+<div id="LEFT_SKYSCRAPER_2" class="wikia-ad noprint"><script type="text/javascript">	if(!window.adslots) {
+	       window.adslots = [];
+	}
+	window.adslots.push(["LEFT_SKYSCRAPER_2", "160x600", "DART", 8]);</script></div><!-- END SLOTNAME: LEFT_SKYSCRAPER_2 -->
+	<div id="WikiaAdInContentPlaceHolder"></div>
+
+</div>
+
+		<footer id="WikiaFooter" class="WikiaFooter notoolbar">
+	<!-- BEGIN SLOTNAME: LEFT_SKYSCRAPER_3 -->
+<div id="LEFT_SKYSCRAPER_3" class="wikia-ad noprint"><script type="text/javascript">	if(!window.adslots) {
+	       window.adslots = [];
+	}
+	window.adslots.push(["LEFT_SKYSCRAPER_3", "160x600", "DART", 6]);</script></div><!-- END SLOTNAME: LEFT_SKYSCRAPER_3 -->
+
+	<div class="FooterAd"></div>
+	<section>
+	<div class="header-container">
+		<h1>Around Wikia's network</h1>
+		<a id="WikiaRandomWiki" href="http://community.wikia.com/wiki/Special:RandomWiki/2827" class="wikia-button">Random Wiki</a>
+	</div>
+	<script type='text/javascript'>
+	wgAfterContentAndJS.push(function() {			fillElem_SPOTLIGHT_FOOTER_helper = function() {
+		if (typeof OA_output != 'undefined') {			if (typeof OA_output['14'] != 'undefined') {
+				$('#SPOTLIGHT_FOOTER_1').html(OA_output['14']);
+			}			if (typeof OA_output['15'] != 'undefined') {
+				$('#SPOTLIGHT_FOOTER_2').html(OA_output['15']);
+			}			if (typeof OA_output['16'] != 'undefined') {
+				$('#SPOTLIGHT_FOOTER_3').html(OA_output['16']);
+			}		}
+	};	fillElem_SPOTLIGHT_FOOTER = function () {
+		fillElem_SPOTLIGHT_FOOTER_helper();
+	};	if (typeof OA_output == 'undefined') {
+		fillElem_SPOTLIGHT_FOOTER_callback = function() {
+			fillElem_SPOTLIGHT_FOOTER_helper();	
+		};		if (typeof window.spcCallbacks == 'undefined') {
+			window.spcCallbacks = new Array();
+		}
+		window.spcCallbacks.push('fillElem_SPOTLIGHT_FOOTER_callback');
+	}
+	});
+</script>	<ul id="SPOTLIGHT_FOOTER" class="LazyLoadAd SPOTLIGHT_FOOTER">
+				<li class="WikiaSpotlight item-1" id="SPOTLIGHT_FOOTER_1">
+					</li>
+				<li class="WikiaSpotlight item-2" id="SPOTLIGHT_FOOTER_2">
+					</li>
+				<li class="WikiaSpotlight item-3" id="SPOTLIGHT_FOOTER_3">
+					</li>
+			</ul>
+</section>
+</footer>
+				<footer class="CorporateFooter">
+	<nav>
+		<h1>Wikia Inc Navigation</h1>
+		<div class="WikiaHubBranding HubBrandingBlackBackground">
+			<div class="wordmark">
+				<img src="data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D" class="sprite logo9">
+			</div>
+						    <div class="hub"><a class="hub9" href="http://www.wikia.com/Lifestyle">[ Lifestyle ]</a></div>
+					</div>
+		<ul>
+			<li>
+							<a href="http://www.wikia.com/About"><span>About</span></a>
+						</li>
+				<li>
+							<a href="http://www.community.wikia.com"><span>Community Central</span></a>
+						</li>
+				<li>
+							<a href="http://www.wikia.com/Careers">Careers</a>
+						</li>
+				<li>
+							<a href="http://www.wikia.com/Advertising">Advertise</a>
+						</li>
+				<li>
+							<a href="http://api.wikia.com/"><span>API</span></a>
+						</li>
+				<li>
+							<a href="/wiki/Special:Contact">Contact Wikia</a>
+						</li>
+				<li>
+							<a href="http://www.wikia.com/Terms_of_Use">Terms of Use</a>
+						</li>
+				<li>
+							<a href="http://www.wikia.com/Privacy_Policy">Privacy Policy</a>
+						</li>
+				<li>
+			Content is available under <a href="http://community.wikia.com/wiki/Wikia:Licensing" title="w:Wikia:Licensing">CC-BY-SA</a>.			</li>
+			</ul>
+	</nav>
+</footer>
+	</div>
+</section><!--WikiaPage-->
+
+
+<!-- BEGIN SLOTNAME: INVISIBLE_1 -->
+<div id="INVISIBLE_1" class="wikia-ad noprint"><script type="text/javascript">	if(!window.adslots) {
+	       window.adslots = [];
+	}
+	window.adslots.push(["INVISIBLE_1", "0x0", "DART", 0]);</script></div><!-- END SLOTNAME: INVISIBLE_1 -->
+<!-- BEGIN SLOTNAME: INVISIBLE_2 -->
+<div id="INVISIBLE_2" class="wikia-ad noprint"><script type="text/javascript">	if(!window.adslots) {
+	       window.adslots = [];
+	}
+	window.adslots.push(["INVISIBLE_2", "0x0", "DART", 0]);</script></div><!-- END SLOTNAME: INVISIBLE_2 -->
+		<!--[if lt IE 8]>
+			<script src="http://slot2.images.wikia.nocookie.net/__cb59990/common/resources/wikia/libraries/json2/json2.js"></script>
+		<![endif]-->
+
+		<!--[if lt IE 9]>
+			<script src="http://slot2.images.wikia.nocookie.net/__cb59990/common/resources/wikia/libraries/html5/html5.min.js"></script>
+		<![endif]-->
+
+		<!-- Combined JS files and head scripts -->
+		<script src="http://vim.wikia.com/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=oasis&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Launch_files_in_new_tabs_under_Windows","wgTitle":"Launch files in new tabs under Windows","wgCurRevisionId":35154,"wgArticleId":4215,"wgIsArticle":true,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["VimTip","File Handling","Tabs","Windows","Splits"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgRelevantPageName":"Launch_files_in_new_tabs_under_Windows","wgRestrictionEdit":[],"wgRestrictionMove":[],"wgSearchNamespaces":[0],"wgEnableAdsInContent":1,"wgEnableAdMeldAPIClient":true,"wgEnableAdMeldAPIClientPixels":true,"wgEnableOpenXSPC":true,"cityShort":"tech","wgAdDriverCookieLifetime":1,"wgHighValueCountries":{"AU":3,"BE":3,"CA":3,"DE":3,"DK":3,"FI":3,"FR":3,"GB":3,"HU":3,"LU":3,"NL":3,"NO":3,"SE":3,"UA":3,"UK":3,"US":3},"wgAdDriverUseExpiryStorage":true,"wgDartCustomKeyValues":null,"wgTimeAgoi18n":{"year":"a year ago","years":"%d years ago","month":"a month ago","months":"%d months ago","day":"a day ago","days":"%d days ago","hour":"an hour ago","hours":"%d hours ago","minute":"a minute ago","minutes":"%d minutes ago","seconds":"a minute ago","year-from-now":"\x26lt;timeago-year-from-now\x26gt;","years-from-now":"\x26lt;timeago-year-from-now\x26gt;","month-from-now":"a month from now","months-from-now":"%d months from now","day-from-now":"a day from now","days-from-now":"%d days from now","hour-from-now":"an hour from now","hours-from-now":"%d hours from now","minute-from-now":"a minute from now","minutes-from-now":"%d minutes from now","second-from-now":"a minute from now","seconds-from-now":"a minute from now"},"sassParams":{"background-align":"center","background-fixed":false,"background-image":"","background-tiled":"false","color-body":"#003816","color-buttons":"#25883d","color-header":"#002c11","color-links":"#2b54b5","color-page":"#ffffff","page-opacity":"100","wordmark-font":"cpmono"},"wgAssetsManagerQuery":"/__am/%4$d/%1$s/%3$s/%2$s","wgCdnRootUrl":"http://slot2.images.wikia.nocookie.net","wgCatId":12,"wgParentCatId":0,"wgBlankImgUrl":"data:image/gif;base64,R0lGODlhAQABAIABAAAAAP///yH5BAEAAAEALAAAAAABAAEAQAICTAEAOw%3D%3D","wgMainpage":"Vim Tips Wiki","wgIsContentNamespace":true,"wgStyleVersion":"59990","themename":"oasis","wgExtensionsPath":"http://slot2.images.wikia.nocookie.net/__cb59990/common/extensions","wgResourceBasePath":"http://slot2.images.wikia.nocookie.net/__cb59990/common","wgSitename":"Vim Tips Wiki","wgMWrevId":"28409","wgRevisionId":35154,"wgCookieDomain":".wikia.com","wgCookiePath":"/","ExitstitialOutboundScreen":"/wiki/Special:Outbound?f=Launch_files_in_new_tabs_under_Windows","wgExitstitialTitle":"Leaving Vim Tips Wiki","wgExitstitialRegister":"\x3ca href=\"#\" class=\"register\"\x3eRegister\x3c/a\x3e or \x3ca href=\"#\" class=\"login\"\x3eLogin\x3c/a\x3e to skip ads.","wgExitstitialButton":"Skip This Ad","wgInterstitialPath":"http://vim.wikia.com/wiki/Special:Interstitial?u=","wgEnableUserLoginExt":true,"wgEnableLightboxExt":true,"wgEnableWikiaFollowedPages":true,"wgFollowedPagesPagerLimit":15,"wgFollowedPagesPagerLimitAjax":600,"wgWikiaChatModuleContent":"","wgWikiaChatWindowFeatures":"width=600,height=600,menubar=no,status=no,location=no,toolbar=no,scrollbars=no,resizable=yes","WikiaEnableNewCreatepage":true,"ContentNamespacesText":[""],"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","fbAppId":"112328095453510","fbScript":"http://connect.facebook.net/en_US/all.js","fbUseMarkup":true,"fbLogo":true,"fbLogoutURL":"/wiki/Special:UserLogout?returnto=Launch_files_in_new_tabs_under_Windows","fbReturnToTitle":"Launch_files_in_new_tabs_under_Windows","fbScriptLangCode":"en_US","TOCimprovementsEnabled":"1"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":1,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":1,"justify":0,"math":0,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"oasis","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":1,"watchcreations":1,"watchdefault":1,"watchdeletion":1,
+"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"htmlemails":1,"watchlistdigest":1,"enablerichtext":1,"founderemails-joins-2827":0,"founderemails-edits-2827":0,"founderemails-views-digest-2827":0,"founderemails-complete-digest-2827":0,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs110":false,"searchNs111":false,"searchNs112":false,"searchNs113":false,"searchNs1100":false,"searchNs1200":false,"searchNs1201":false,"searchNs1202":false});;},{},{});mw.loader.implement("user.tokens",function($){mw.user.tokens.set({"editToken":"+\\","watchToken":false});;},{},{});
+
+/* cache key: vim:resourceloader:filter:minify-js:7:e0a609656c4c9b95f0690d1b99af2f7a */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","mediawiki.user","mediawiki.page.ready","mediawiki.legacy.mwsuggest"]);
+}</script><script type="text/javascript">
+	var wsl_assets = {"oasis_shared_js":["http:\/\/slot2.images.wikia.nocookie.net\/__am\/59990\/group\/-\/oasis_shared_js_anon"],"oasis_nojquery_shared_js":["http:\/\/slot2.images.wikia.nocookie.net\/__am\/59990\/group\/-\/oasis_nojquery_shared_js_anon"],"references":["http:\/\/slot2.images.wikia.nocookie.net\/__am\/59990\/one\/minify%3D1\/resources\/wikia\/libraries\/bootstrap\/popover.js","http:\/\/slot2.images.wikia.nocookie.net\/__am\/59990\/one\/minify%3D1\/extensions\/wikia\/Chat2\/js\/ChatEntryPoint.js","http:\/\/slot2.images.wikia.nocookie.net\/__am\/59990\/one\/minify%3D1\/extensions\/wikia\/UserLogin\/js\/UserLoginDropdown.js"]};				if ( typeof window.EXP_AD_LOAD_TIMING != 'undefined' && (window.wgLoadAdDriverOnLiftiumInit || (window.getTreatmentGroup && (getTreatmentGroup(EXP_AD_LOAD_TIMING) == TG_AS_WRAPPERS_ARE_RENDERED)))) {
+					toload = wsl_assets.oasis_nojquery_shared_js.concat(wsl_assets.references);
+				} else {
+					toload = wsl_assets.oasis_shared_js.concat(wsl_assets.references);
+				}			(function(){ wsl.loadScript(toload); })();
+		</script>
+<!-- No iframe placeholders called for AdEngine::getDelayedIframeLoadingCode -->
+
+<script type="text/javascript">/*<![CDATA[*/while(wgAfterContentAndJS.length>0){wgAfterContentAndJS.shift()();}/*]]>*/</script>
+<!-- BottomScripts -->
+
+<script>if (JSSnippetsStack.length) $.getScript('http://slot2.images.wikia.nocookie.net/__am/59990/one/minify%3D1/extensions/wikia/JSSnippets/js/JSSnippets.js');</script><!-- Facebook integration -->
+<div id="fb-root"></div><!-- end Bottomscripts -->
+
+<!-- printable CSS -->
+<script>setTimeout(function(){wsl.loadCSS(["http:\/\/slot2.images.wikia.nocookie.net\/__am\/59990\/sass\/background-align%3Dcenter%26background-fixed%3D0%26background-image%3D%26background-tiled%3Dfalse%26color-body%3D%2523003816%26color-buttons%3D%252325883d%26color-header%3D%2523002c11%26color-links%3D%25232b54b5%26color-page%3D%2523ffffff%26page-opacity%3D100%26wordmark-font%3Dcpmono\/skins\/oasis\/css\/print.scss"], 'print')}, 100)</script>
+<!-- Served by ap-s43 in 0.941 secs. -->
+</body>
+<!-- Ad slots to be called within AdModule on this page: TOP_LEADERBOARD, TOP_RIGHT_BOXAD, TEST_TOP_RIGHT_BOXAD, MIDDLE_RIGHT_BOXAD, INVISIBLE_1, INVISIBLE_2, LEFT_SKYSCRAPER_2, LEFT_SKYSCRAPER_3, PREFOOTER_LEFT_BOXAD, PREFOOTER_RIGHT_BOXAD, INVISIBLE_TOP, TOP_RIGHT_BUTTON, TOP_BUTTON -->
+</html>

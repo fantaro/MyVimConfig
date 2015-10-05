@@ -1,0 +1,310 @@
+" vim:set ts=8 sts=2 sw=2 tw=0: (この行に関しては:help modelineを参照)
+"
+" vimvim      vimvim      vim
+"    vim      vim
+"    vim      vim
+"    vim   vim         vimvim       vimvimvimvim
+"    vim   vim            vim       vim   vim   vim
+"       vimvim            vim       vim   vim   vim
+"       vim               vim       vim   vim   vim
+"       vim            vimvimvim    vim   vim   vim
+
+" Last Change: 21-Sep-2015.
+" Maintainer:  樊振剛（ハンシンゴウ） <fantaro@gmail.com>
+
+" VIMモード
+set nocompatible
+
+syntax on
+
+filetype plugin on
+
+let g:is_guiRunning = has('gui_running')
+
+"---------------------------------------------------------------------------
+" 文字エンコーディングの設定:
+"
+" 表示できる文字エンコーディングのリスト
+set fileencodings=ucs-bom,utf-8,utf-8-bom,utf-16,utf-16le,cp932,euc-jp,sjis,cp936,euc-cn,big5,cp949,euc-kr
+" 通常使う文字エンコーディング
+set encoding=UTF-8
+
+set helplang=ja
+set nomodeline
+set printoptions=paper:a4
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+
+"---------------------------------------------------------------------------
+" 検索の挙動に関する設定:
+"
+" 検索時に大文字小文字を無視 (noignorecase:無視しない)
+set ignorecase
+" 大文字小文字の両方が含まれている場合は大文字小文字を区別
+set smartcase
+" コマンド、検索パターンを50個まで履歴に残す
+set history=500
+" 検索文字列をハイライトする
+set hlsearch
+" インクリメンタルサーチ
+set incsearch
+" 検索時にファイルの最後まで行ったら最初に戻る (nowrapscan:戻らない)
+set nowrapscan
+
+"---------------------------------------------------------------------------
+" 編集に関する設定:
+"
+" タブが対応する空白の数
+set tabstop=4
+" タブやバックスペースの使用等の編集操作をするときに、タブが対応する空白の数
+set softtabstop=4
+" インデントの各段階に使われる空白の数
+set shiftwidth=4
+" タブをスペースに展開しない (expandtab:展開する)
+set noexpandtab
+" 自動的にインデントする (noautoindent:インデントしない)
+set autoindent
+" 行頭の余白内で Tab を打ち込むと、'shiftwidth' の数だけインデントする
+set smarttab
+" 新しい行を作ったときに高度な自動インデントを行う
+set smartindent
+" バックスペースでインデントや改行を削除できるようにする
+" ・start  - 既存の文字を削除できるように設定
+" ・eol    - 行頭で[Backspace]を使用した場合上の行と連結
+" ・indent - オートインデントモードでインデントを削除できるように設定
+set backspace=indent,eol,start
+" <F12>キーで'paste'と'nopaste'を切り替える
+set pastetoggle=<F12>
+" 括弧入力時に対応する括弧を表示 (noshowmatch:表示しない)
+set showmatch
+" マッチしている括弧を表示するための時間を0.1秒単位で指定する
+set matchtime=2
+" コマンドライン補完するときに強化されたものを使う
+set wildmenu
+" 複数のマッチがあるときは、全てのマッチを羅列し、最初のマッチを補完する
+set wildmode=list:full
+" パターンのどれかにマッチしたファイルは、ファイル／ディレクトリ名の補完時に無視される
+set wildignore&
+set wildignore+=*.exe,*.dll,*.sys                       " Windows binary files
+set wildignore+=*.zip,*.rar,*.7z,*.lzh,*.tar,*.gz,*.cab " Compression files
+set wildignore+=*.jpg,*.bmp,*.png,*.gif,*.ico,*.psd     " Image files
+set wildignore+=*.luac                                  " Lua byte code
+set wildignore+=*.jar                                   " Java archives
+set wildignore+=*.pyc                                   " Python byte code
+set wildignore+=*.stats                                 " Pylint stats
+" テキスト挿入中の自動折り返しを日本語に対応させる
+set formatoptions+=mM
+" テキスト内の数をコマンド CTRL-A や CTRL-X で増減させる設定
+set nrformats=
+" 矩形選択で自由に移動する
+set virtualedit=block
+" コマンド実行中に画面を描画しない
+set lazyredraw
+" 変更中のファイルでも、保存しないで他のファイルを表示することが出来るようにする
+set hidden
+
+"---------------------------------------------------------------------------
+" キーマップの設定:
+"
+" inoremap : #Insert mode
+" noremap  : #Normal + Visual + Select + Operator-pending modes
+" nnoremap : #Normal mode
+" vnoremap : #Visual + Select mode
+" cnoremap : #Command-line mode
+"
+" define <Leader>
+let mapleader = ","
+"
+" #GUI モード
+if g:is_guiRunning
+  " 新タブを開く
+  nnoremap <silent> <F2> :tabnew<CR>
+  " タブページを切り替える
+  inoremap <C-Tab> <ESC>gt
+  inoremap <C-S-Tab> <ESC>gT
+  noremap <C-Tab> <ESC>gt
+  noremap <C-S-Tab> <ESC>gT
+endif
+" TABにて対応ペアにジャンプ
+nnoremap <Tab> %
+vnoremap <Tab> %
+" 括弧を自動的に補足
+inoremap {} {}<Left>
+inoremap [] []<Left>
+inoremap () ()<Left>
+inoremap "" ""<Left>
+inoremap '' ''<Left>
+inoremap <> <><Left>
+" 検索箇所を真ん中に
+noremap n nzz
+noremap N Nzz
+noremap * *zz
+noremap # #zz
+noremap g* g*zz
+noremap g# g#zz
+" 行が折り返されている場合表示行上下に移動
+noremap <C-j> gj
+noremap <C-k> gk
+" スペースでダウンアップ
+noremap <Space> 3<C-E>
+noremap <S-Space> 3<C-Y>
+" 行頭、行末に移動する
+noremap <Leader>h ^
+noremap <Leader>l $
+" すべて選択
+noremap <Leader>a ggVG
+" コマンドラインモードの「↑、↓、←、→」
+cnoremap <C-k> <Up>
+cnoremap <C-j> <Down>
+cnoremap <C-h> <Left>
+cnoremap <C-l> <Right>
+" バックスラッシュやクエスチョンを状況に合わせ自動的にエスケープ
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+" 検索のハイライトを消す
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
+" コマンドの雛形
+nnoremap <F4> :%s///gc<Left><Left><Left><Left>
+vnoremap <F4> :s///gc<Left><Left><Left><Left>
+nnoremap <F5> :vimgrep //j **/*.* \| cw<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+nnoremap <F6> :e ++enc=latin1\|macroman\|cp932\|euc-jp\|sjis\|cp949\|euc-kr\|cp936\|euc-cn\|cp950\|big5\|euc-tw\|utf-8\|ucs-2\|ucs-2le\|utf-16\|utf-16le
+nnoremap <F7> :e ++ff=dos\|unix\|mac
+nnoremap <F8> :set enc=latin1\|macroman\|cp932\|euc-jp\|sjis\|cp949\|euc-kr\|cp936\|euc-cn\|cp950\|big5\|euc-tw\|utf-8\|ucs-2\|ucs-2le\|utf-16\|utf-16le
+" レジスタの内容を表示する
+nnoremap <silent> <F9> :registers<CR>
+" カレントバッファをメモリから取り除き、バッファリストから削除する（編集あった場合確認あり）
+nnoremap <silent> <C-W> :confirm bd<CR>
+" ウィンドウの移動
+nnoremap <silent> <A-Up> :wincmd k<CR>
+nnoremap <silent> <A-Down> :wincmd j<CR>
+nnoremap <silent> <A-Left> :wincmd h<CR>
+nnoremap <silent> <A-Right> :wincmd l<CR>
+" 加算と減算
+nnoremap + <C-a>
+nnoremap - <C-x>
+" 行末までのヤンクにする
+nnoremap Y y$
+" 強制全保存終了を無効化
+nnoremap ZZ <Nop>
+" マウスの中ボタンによる貼り付けを無効化
+noremap <MiddleMouse> <Nop>
+noremap <2-MiddleMouse> <Nop>
+noremap <3-MiddleMouse> <Nop>
+noremap <4-MiddleMouse> <Nop>
+" インデントを連続で出来るように設定
+vnoremap <silent> > >gv
+vnoremap <silent> < <gv
+
+"---------------------------------------------------------------------------
+" 画面表示の設定:
+"
+if g:is_guiRunning
+  " GUI用のオプション
+  " 水平スクロールバーを表示する
+  set guioptions+=b
+  " ツールバーを非表示する
+  set guioptions-=T
+  " フォントの設定
+  set guifont=DejaVu\ Sans\ Mono\ 11
+  " ウインドウの幅
+  set columns=100
+  " ウインドウの高さ
+  set lines=32
+  " カラー設定:
+  colorscheme solarized
+endif
+" コマンドラインの高さ
+set cmdheight=1
+" 行間隔の設定
+set linespace=0
+" 行番号を非表示 (number:表示)
+set number
+" ルーラーを表示 (noruler:非表示)
+set ruler
+" タブや改行を表示 (list:表示)
+set list
+" どの文字でタブや改行を表示するかを設定
+set listchars=tab:»\ ,trail:⌂,eol:¬,extends:⋯,precedes:⋯,nbsp:%
+" 長い行を折り返して表示 (nowrap:折り返さない)
+set nowrap
+if has('statusline')
+  " 常にステータス行を表示
+  set laststatus=2
+  " ステータス行の表示内容
+  set statusline=%m%r%h%w\ %t\ %y\ %{'['.(&fenc!=''?'FileEncoding:':'Encoding:').(&fenc!=''?&fenc:&enc).']\ [FileFormat:'.&ff.'('.(&ff=='unix'?'LF':&ff=='dos'?'CR+LF':'CR').')]'}%=[%l,%c]\ [%L]%10P
+endif
+" コマンドをステータス行に表示
+set showcmd
+" タイトルを表示
+set title
+" カーソルのある画面上の桁をCursorColumnで強調する
+"set cursorcolumn
+" カーソルがある画面上の行をCursorLineで強調する
+set cursorline
+" ビープ音を鳴らさない
+set visualbell t_vb=
+" カーソルの上または下に表示する最小限の行数
+set scrolloff=4
+" カーソルの右または左に表示する最小限の文字数
+set sidescrolloff=16
+" 水平スクロールの刻み幅
+set sidescroll=1
+" ウィンドウの最後の行ができる限りまで表示される
+set display=lastline
+" 挿入モード補完のポップアップメニューに表示される項目数の最大値
+set pumheight=10
+"全角スペースを視覚化
+highlight link ZenkakuSpace Error
+call matchadd("ZenkakuSpace", '\%u3000')
+
+"---------------------------------------------------------------------------
+" ファイル操作に関する設定:
+"
+" バックアップファイル
+set nobackup
+" スワップファイル
+set noswapfile
+" 開かれた／選択されたファイルを含んでいるディレクトリがカレントディレクトリになる
+set autochdir
+
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+  augroup redhat
+  autocmd!
+  " In text files, always limit the width of text to 78 characters
+  autocmd BufRead *.txt set tw=78
+  " When editing a file, always jump to the last cursor position
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal! g'\"" |
+  \ endif
+  " don't write swapfile on most commonly used directories for NFS mounts or USB sticks
+  autocmd BufNewFile,BufReadPre /media/*,/mnt/* set directory=~/tmp,/var/tmp,/tmp
+  " start with spec file template
+  autocmd BufNewFile *.spec 0r /usr/share/vim/vimfiles/template.spec
+  augroup END
+endif
+
+if has("cscope") && filereadable("/usr/bin/cscope")
+   set csprg=/usr/bin/cscope
+   set csto=0
+   set cst
+   set nocsverb
+   " add any database in current directory
+   if filereadable("cscope.out")
+      cs add cscope.out
+   " else add database pointed to by environment
+   elseif $CSCOPE_DB != ""
+      cs add $CSCOPE_DB
+   endif
+   set csverb
+endif
+
+if &term=="xterm"
+     set t_Co=8
+     set t_Sb=[4%dm
+     set t_Sf=[3%dm
+endif
+
+" Don't wake up system with blinking cursor:
+" http://www.linuxpowertop.org/known.php
+let &guicursor = &guicursor . ",a:blinkon0"
