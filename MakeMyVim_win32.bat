@@ -21,21 +21,7 @@ echo ............................... End
 
 echo Copying colorscheme file ...... Start
 del %targetPath%\vim74\colors\*.vim                                             > nul
-rem molokai
-xcopy /Y %currentPath%\colors\molokai.vim %targetPath%\vim74\colors\            > nul
-echo (molokai)
-rem ir_dark
-xcopy /Y %currentPath%\colors\ir_dark.vim %targetPath%\vim74\colors\            > nul
-echo (ir_dark)
-rem solarized
-xcopy /Y %currentPath%\colors\solarized.vim %targetPath%\vim74\colors\          > nul
-echo (solarized)
-rem PaperColor
-xcopy /Y %currentPath%\colors\PaperColor.vim %targetPath%\vim74\colors\         > nul
-echo (PaperColor)
-rem yowish
-xcopy /Y %currentPath%\colors\yowish.vim %targetPath%\vim74\colors\             > nul
-echo (yowish)
+xcopy /Y %currentPath%\colors\*.vim %targetPath%\vim74\colors\                  > nul
 echo ............................... End
 
 echo Copying plugin files .......... Start
@@ -49,6 +35,9 @@ rem tagbar
 "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\tagbar.zip               > nul
 xcopy /S /E /Y %currentPath%\tagbar %targetPath%\vim74\                         > nul
 rmdir /S /Q %currentPath%\tagbar                                                > nul
+"C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\ctags_58j2w32.zip        > nul
+xcopy /S /E /Y %currentPath%\ctags58j2bin %targetPath%\                         > nul
+rmdir /S /Q %currentPath%\ctags58j2bin                                          > nul
 echo (tagbar)
 
 rem snipMate
