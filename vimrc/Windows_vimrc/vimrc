@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 "
-" Last Change: 21-Sep-2015.
+" Last Change: 16-Sep-2016.
 " Maintainer:  樊振剛（ハンシンゴウ） <fantaro@gmail.com>
 "
 " 解説:
@@ -196,6 +196,8 @@ set virtualedit=block
 set lazyredraw
 " 変更中のファイルでも、保存しないで他のファイルを表示することが出来るようにする
 set hidden
+" 入力されているテキストの最大幅
+set textwidth=0
 
 "---------------------------------------------------------------------------
 " キーマップの設定:
@@ -426,12 +428,22 @@ if g:is_mac
 endif
 
 "---------------------------------------------------------------------------
-" KaoriYaでバンドルしているプラグインのための設定:
+" KaoriYaでバンドルしているプラグインのための設定
 
 " autofmt: 日本語文章のフォーマット(折り返し)プラグイン.
 set formatexpr=autofmt#japanese#formatexpr()
 
 " vimdoc-ja: 日本語ヘルプを無効化する.
 if kaoriya#switch#enabled('disable-vimdoc-ja')
-  let &rtp = join(filter(split(&rtp, ','), 'v:val !~ "vimdoc-ja"'), ',')
+  let &rtp = join(filter(split(&rtp, ','), 'v:val !~ "[/\\\\]plugins[/\\\\]vimdoc-ja"'), ',')
+endif
+
+" vimproc: 同梱のvimprocを無効化する
+if kaoriya#switch#enabled('disable-vimproc')
+  let &rtp = join(filter(split(&rtp, ','), 'v:val !~ "[/\\\\]plugins[/\\\\]vimproc$"'), ',')
+endif
+
+" go-extra: 同梱の vim-go-extra を無効化する
+if kaoriya#switch#enabled('disable-go-extra')
+  let &rtp = join(filter(split(&rtp, ','), 'v:val !~ "[/\\\\]plugins[/\\\\]golang$"'), ',')
 endif
