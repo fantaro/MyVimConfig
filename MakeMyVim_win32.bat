@@ -88,7 +88,9 @@ xcopy /Y %currentPath%\plugin\fencview.vim %targetPath%\vim80\plugin\           
 echo (fencview)
 
 rem vim-swoop
-xcopy /Y %currentPath%\plugin\vim-swoop.vim %targetPath%\vim80\plugin\          > nul
+"C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\vim-swoop.zip            > nul
+xcopy /S /E /Y %currentPath%\vim-swoop %targetPath%\vim80\                      > nul
+rmdir /S /Q %currentPath%\vim-swoop                                             > nul
 echo (vim-swoop)
 
 echo ............................... End
