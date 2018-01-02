@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 "
-" Last Change: 16-Sep-2016.
+" Last Change: 03-Jan-2018.
 " Maintainer:  樊振剛（ハンシンゴウ） <fantaro@gmail.com>
 "
 " 解説:
@@ -379,6 +379,8 @@ set nobackup
 set noswapfile
 " 開かれた／選択されたファイルを含んでいるディレクトリがカレントディレクトリになる
 set autochdir
+" undo情報ファイル
+set noundofile
 
 " 無名レジスタに入るデータを、*レジスタにも入れる
 "set clipboard+=unnamed
