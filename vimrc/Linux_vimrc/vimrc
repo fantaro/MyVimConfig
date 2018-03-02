@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change: 21-Sep-2015.
+" Last Change: 02-Mar-2018.
 " Maintainer:  樊振剛（ハンシンゴウ） <fantaro@gmail.com>
 
 " VIMモード
@@ -168,7 +168,8 @@ vnoremap <F4> :s///gc<Left><Left><Left><Left>
 nnoremap <F5> :vimgrep //j **/*.* \| cw<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 nnoremap <F6> :e ++enc=latin1\|macroman\|cp932\|euc-jp\|sjis\|cp949\|euc-kr\|cp936\|euc-cn\|cp950\|big5\|euc-tw\|utf-8\|ucs-2\|ucs-2le\|utf-16\|utf-16le
 nnoremap <F7> :e ++ff=dos\|unix\|mac
-nnoremap <F8> :set enc=latin1\|macroman\|cp932\|euc-jp\|sjis\|cp949\|euc-kr\|cp936\|euc-cn\|cp950\|big5\|euc-tw\|utf-8\|ucs-2\|ucs-2le\|utf-16\|utf-16le
+" 相対行数と絶対行数の表示を切り替える
+nnoremap <F8> :setlocal relativenumber!<CR>
 " レジスタの内容を表示する
 nnoremap <silent> <F9> :registers<CR>
 " カレントバッファをメモリから取り除き、バッファリストから削除する（編集あった場合確認あり）
