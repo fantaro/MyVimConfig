@@ -9,31 +9,31 @@ if not exist "%1" goto MAIN_FILE_NOT_FOUND
 
 echo Extracting VIM ................ Start
 "C:\Program Files\7-Zip\7z.exe" x %1                                            > nul
-rename %currentPath%\vim80-kaoriya-win64 vim                                    > nul
+rename %currentPath%\vim81-kaoriya-win64 vim                                    > nul
 echo ............................... End
 
 echo Copying vimrc files ........... Start
 xcopy /Y %currentPath%\vimrc\Windows_vimrc\* %targetPath%\                      > nul
 xcopy /Y %currentPath%\vimrc\encode_japan.vim %targetPath%\plugins\kaoriya\     > nul
-rem xcopy /Y %currentPath%\vimrc\vimrc_example.vim %targetPath%\vim80\          > nul
+rem xcopy /Y %currentPath%\vimrc\vimrc_example.vim %targetPath%\vim81\          > nul
 xcopy /Y %targetPath%\switches\catalog\utf-8.vim %targetPath%\switches\enabled\ > nul
 echo ............................... End
 
 echo Copying colorscheme file ...... Start
-del %targetPath%\vim80\colors\*.vim                                             > nul
-xcopy /Y %currentPath%\colors\*.vim %targetPath%\vim80\colors\                  > nul
+del %targetPath%\vim81\colors\*.vim                                             > nul
+xcopy /Y %currentPath%\colors\*.vim %targetPath%\vim81\colors\                  > nul
 echo ............................... End
 
 echo Copying plugin files .......... Start
 rem taglist   20120417_commented
 rem "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\taglist_45.zip       > nul
-rem xcopy /S /E /Y %currentPath%\taglist_45 %targetPath%\vim80\                 > nul
+rem xcopy /S /E /Y %currentPath%\taglist_45 %targetPath%\vim81\                 > nul
 rem rmdir /S /Q %currentPath%\taglist_45                                        > nul
 rem echo (taglist)
 
 rem tagbar
 "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\tagbar.zip               > nul
-xcopy /S /E /Y %currentPath%\tagbar %targetPath%\vim80\                         > nul
+xcopy /S /E /Y %currentPath%\tagbar %targetPath%\vim81\                         > nul
 rmdir /S /Q %currentPath%\tagbar                                                > nul
 "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\ctags_58j2w32.zip        > nul
 xcopy /S /E /Y %currentPath%\ctags58j2bin %targetPath%\                         > nul
@@ -42,34 +42,34 @@ echo (tagbar)
 
 rem snipMate
 "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\snipMate.zip             > nul
-xcopy /S /E /Y %currentPath%\snipMate %targetPath%\vim80\                       > nul
+xcopy /S /E /Y %currentPath%\snipMate %targetPath%\vim81\                       > nul
 rmdir /S /Q %currentPath%\snipMate                                              > nul
-xcopy /S /E /Y %currentPath%\snipMate_snippets %targetPath%\vim80\snippets      > nul
+xcopy /S /E /Y %currentPath%\snipMate_snippets %targetPath%\vim81\snippets      > nul
 echo (snipMate)
 
 rem cmdline-complete
-xcopy /Y %currentPath%\plugin\cmdline-complete.vim %targetPath%\vim80\plugin\   > nul
+xcopy /Y %currentPath%\plugin\cmdline-complete.vim %targetPath%\vim81\plugin\   > nul
 echo (cmdline-complete)
 
 rem visual-star-search
-xcopy /Y %currentPath%\plugin\visual-star-search.vim %targetPath%\vim80\plugin\ > nul
+xcopy /Y %currentPath%\plugin\visual-star-search.vim %targetPath%\vim81\plugin\ > nul
 echo (visual-star-search)
 
-rem tabular   20120804_commented
+rem tabular   20120814_commented
 rem "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\tabular.zip          > nul
-rem xcopy /S /E /Y %currentPath%\tabular %targetPath%\vim80\                    > nul
+rem xcopy /S /E /Y %currentPath%\tabular %targetPath%\vim81\                    > nul
 rem rmdir /S /Q %currentPath%\tabular                                           > nul
 rem echo (tabular)
 
 rem vim-alignta 2015047_commented
 rem "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\vim-alignta.zip      > nul
-rem xcopy /S /E /Y %currentPath%\vim-alignta %targetPath%\vim80\                > nul
+rem xcopy /S /E /Y %currentPath%\vim-alignta %targetPath%\vim81\                > nul
 rem rmdir /S /Q %currentPath%\vim-alignta                                       > nul
 rem echo (vim-alignta)
 
 rem vim-easy-align
 "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\vim-easy-align.zip       > nul
-xcopy /S /E /Y %currentPath%\vim-easy-align %targetPath%\vim80\                 > nul
+xcopy /S /E /Y %currentPath%\vim-easy-align %targetPath%\vim81\                 > nul
 rmdir /S /Q %currentPath%\vim-easy-align                                        > nul
 echo (vim-easy-align)
 
@@ -79,17 +79,17 @@ echo (mru)
 
 rem vim-ps1-master
 "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\vim-ps1-master.zip       > nul
-xcopy /S /E /Y %currentPath%\vim-ps1-master %targetPath%\vim80\                 > nul
+xcopy /S /E /Y %currentPath%\vim-ps1-master %targetPath%\vim81\                 > nul
 rmdir /S /Q %currentPath%\vim-ps1-master                                        > nul
 echo (vim-ps1-master)
 
 rem fencview
-xcopy /Y %currentPath%\plugin\fencview.vim %targetPath%\vim80\plugin\           > nul
+xcopy /Y %currentPath%\plugin\fencview.vim %targetPath%\vim81\plugin\           > nul
 echo (fencview)
 
 rem vim-swoop
 "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\vim-swoop.zip            > nul
-xcopy /S /E /Y %currentPath%\vim-swoop %targetPath%\vim80\                      > nul
+xcopy /S /E /Y %currentPath%\vim-swoop %targetPath%\vim81\                      > nul
 rmdir /S /Q %currentPath%\vim-swoop                                             > nul
 echo (vim-swoop)
 
@@ -102,7 +102,7 @@ echo Missing parameter !
 goto END
 
 :MAIN_FILE_NOT_FOUND
-echo [vim80-kaoriya-win64-*.zip] is not found !
+echo [vim81-kaoriya-win64-*.zip] is not found !
 goto ERROR_END
 
 :ERROR_END
