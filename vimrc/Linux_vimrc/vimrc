@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change: 02-Mar-2018.
+" Last Change: 04-May-2019.
 " Maintainer:  樊振剛（ハンシンゴウ） <fantaro@gmail.com>
 
 " VIMモード
@@ -213,6 +213,8 @@ if g:is_guiRunning
   " カラー設定:
   colorscheme solarized
 endif
+" 起動時のメッセージを消す
+set shortmess+=I
 " コマンドラインの高さ
 set cmdheight=1
 " 行間隔の設定
