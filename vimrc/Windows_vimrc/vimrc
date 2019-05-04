@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 "
-" Last Change: 02-Mar-2018.
+" Last Change: 04-May-2019.
 " Maintainer:  樊振剛（ハンシンゴウ） <fantaro@gmail.com>
 "
 " 解説:
@@ -330,6 +330,8 @@ endif
 "---------------------------------------------------------------------------
 " GUI固有ではない画面表示の設定:
 "
+" 起動時のメッセージを消す
+set shortmess+=I
 " 行番号を非表示 (number:表示)
 set number
 " ルーラーを表示 (noruler:非表示)
