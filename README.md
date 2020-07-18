@@ -47,12 +47,13 @@
 系统语言是不一样的，并且通用版本对英文系统以外的支持需要进行一系列配置，所以我选择了由日本作者KoRoN
 自行发布的Vim，这个版本可以很好的在日文系统下使用，并且加入了一些适合日文系统使用的插件。
 然后我研究并成功地将这个版本的Vim用在中文系统下。如果大家也有日文系统下使用Vim的需求，
-可以去[香り屋][kaoriya]下载。
+可以去[香り屋][kaoriya]或者该作者的[GitHub][kaoriya_releases]下载。
 
 
 [vim]: http://ja.wikipedia.org/wiki/Vim
 [Emacs]: http://ja.wikipedia.org/wiki/Emacs
 [hidemaru]: http://hide.maruo.co.jp/software/hidemaru.html
 [sakura]: http://sakura-editor.sourceforge.net
-[npp]: http://notepad-plus-plus.org/
+[npp]: http://notepad-plus-plus.org
 [kaoriya]: http://www.kaoriya.net
+[kaoriya_releases]: https://github.com/koron/vim-kaoriya/releases
