@@ -18,5 +18,5 @@
 
 ---
 ##To update the Vim Help, run:
-###:helptags $VIM/vim74/doc (Windows)
+###:helptags $VIM/vim82/doc (Windows)
 ###:helptags $HOME/.vim/doc (Unix)
