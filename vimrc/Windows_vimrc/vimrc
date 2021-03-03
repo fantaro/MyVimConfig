@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 "
-" Last Change: 20-Feb-2021.
+" Last Change: 03-Mar-2021.
 " Maintainer:  樊振剛（ハンシンゴウ） <fantaro@gmail.com>
 "
 " 解説:
@@ -295,12 +295,11 @@ vnoremap <silent> < <gv
 " プラグインの設定:
 "
 " mruの設定
-if filereadable($VIM . '/plugins/mru.vim')
+if filereadable($VIMRUNTIME . '/plugin/mru.vim')
   " If you don't use the "File->Recent Files" menu and want to disable it,
   " then you can set the 'MRU_Add_Menu' variable to zero. By default, the
   " menu is enabled.
   let MRU_Add_Menu = 0
-  source $VIM/plugins/mru.vim
   nnoremap <silent> <F10> :MRU<CR>
 endif
 
