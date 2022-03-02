@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 "
-" Last Change: 03-Mar-2021.
+" Last Change: 02-Mar-2022.
 " Maintainer:  樊振剛（ハンシンゴウ） <fantaro@gmail.com>
 "
 " 解説:
@@ -340,7 +340,7 @@ set ruler
 " タブや改行を表示 (list:表示)
 set list
 " どの文字でタブや改行を表示するかを設定
-set listchars=tab:»\ ,trail:⌂,eol:¬,extends:⋯,precedes:⋯,nbsp:%
+set listchars=tab:»\ ,trail:⌂,extends:⋯,precedes:⋯,nbsp:%
 " 長い行を折り返して表示 (nowrap:折り返さない)
 set nowrap
 if has('statusline')

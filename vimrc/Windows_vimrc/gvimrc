@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 "
-" Last Change: 16-Sep-2016.
+" Last Change: 02-Mar-2022.
 " Maintainer:  樊振剛（ハンシンゴウ） <fantaro@gmail.com>
 "
 " 解説:
@@ -68,16 +68,14 @@ endif
 
 "---------------------------------------------------------------------------
 " カラー設定:
-colorscheme solarized
+colorscheme solarized8
 
 "---------------------------------------------------------------------------
 " フォント設定:
 "
 if g:is_windows
   " Windows用フォント
-  set guifont=Consolas:h12:cDEFAULT
-  "set guifont=Ricty\ Diminished\ Discord:h14:cDEFAULT
-  "set guifont=Ricty\ Diminished:h14:cDEFAULT
+  set guifont=MS_Gothic:h12:cDEFAULT
   " 行間隔の設定
   set linespace=0
   " 一部のUCS文字の幅を自動計測して決める
@@ -96,9 +94,9 @@ endif
 "
 if g:is_guiRunning
   " ウインドウの幅
-  set columns=110
+  set columns=140
   " ウインドウの高さ
-  set lines=32
+  set lines=42
 endif
 " コマンドラインの高さ(GUI使用時)
 set cmdheight=1
