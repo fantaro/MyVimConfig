@@ -1,4 +1,4 @@
-﻿### [tagbar](http://majutsushi.github.io/tagbar/ "The Vim class outline viewer")
+﻿### [tagbar](https://github.com/preservim/tagbar "The Vim class outline viewer")
 
 ### [mru](https://github.com/yegappan/mru "An easy access to a list of recently opened/edited files in Vim")
 
