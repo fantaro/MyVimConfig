@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change: 02-Mar-2022.
+" Last Change: 29-Mar-2022.
 " Maintainer:  樊振剛（ハンシンゴウ） <fantaro@gmail.com>
 
 " VIMモード
@@ -41,7 +41,7 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 set ignorecase
 " 大文字小文字の両方が含まれている場合は大文字小文字を区別
 set smartcase
-" コマンド、検索パターンを50個まで履歴に残す
+" コマンド、検索パターンを500個まで履歴に残す
 set history=500
 " 検索文字列をハイライトする
 set hlsearch
@@ -207,9 +207,9 @@ if g:is_guiRunning
   " フォントの設定
   set guifont=DejaVu\ Sans\ Mono\ 11
   " ウインドウの幅
-  set columns=120
+  set columns=140
   " ウインドウの高さ
-  set lines=38
+  set lines=42
   " カラー設定:
   set background=dark
   colorscheme solarized8
