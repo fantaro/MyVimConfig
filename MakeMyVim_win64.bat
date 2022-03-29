@@ -25,27 +25,6 @@ xcopy /Y %currentPath%\colors\*.vim %targetPath%\vim82\colors\                  
 echo ............................... End
 
 echo Copying plugin files .......... Start
-rem taglist   20120417_commented
-rem "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\taglist_45.zip       > nul
-rem xcopy /S /E /Y %currentPath%\taglist_45 %targetPath%\vim82\                 > nul
-rem rmdir /S /Q %currentPath%\taglist_45                                        > nul
-rem echo (taglist)
-
-rem tagbar
-"C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\tagbar.zip               > nul
-xcopy /S /E /Y %currentPath%\tagbar %targetPath%\vim82\                         > nul
-rmdir /S /Q %currentPath%\tagbar                                                > nul
-"C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\ctags_58j2w32.zip        > nul
-xcopy /S /E /Y %currentPath%\ctags58j2bin %targetPath%\                         > nul
-rmdir /S /Q %currentPath%\ctags58j2bin                                          > nul
-echo (tagbar)
-
-rem snipMate
-"C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\snipMate.zip             > nul
-xcopy /S /E /Y %currentPath%\snipMate %targetPath%\vim82\                       > nul
-rmdir /S /Q %currentPath%\snipMate                                              > nul
-xcopy /S /E /Y %currentPath%\snipMate_snippets %targetPath%\vim82\snippets      > nul
-echo (snipMate)
 
 rem cmdline-complete
 xcopy /Y %currentPath%\plugin\cmdline-complete.vim %targetPath%\vim82\plugin\   > nul
@@ -54,18 +33,6 @@ echo (cmdline-complete)
 rem visual-star-search
 xcopy /Y %currentPath%\plugin\visual-star-search.vim %targetPath%\vim82\plugin\ > nul
 echo (visual-star-search)
-
-rem tabular   20120814_commented
-rem "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\tabular.zip          > nul
-rem xcopy /S /E /Y %currentPath%\tabular %targetPath%\vim82\                    > nul
-rem rmdir /S /Q %currentPath%\tabular                                           > nul
-rem echo (tabular)
-
-rem vim-alignta 2015047_commented
-rem "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\vim-alignta.zip      > nul
-rem xcopy /S /E /Y %currentPath%\vim-alignta %targetPath%\vim82\                > nul
-rem rmdir /S /Q %currentPath%\vim-alignta                                       > nul
-rem echo (vim-alignta)
 
 rem vim-easy-align
 "C:\Program Files\7-Zip\7z.exe" x %currentPath%\plugin\vim-easy-align.zip       > nul
