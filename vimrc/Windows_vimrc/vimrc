@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 "
-" Last Change: 29-Mar-2022.
+" Last Change: 02-Mar-2022.
 " Maintainer:  樊振剛（ハンシンゴウ） <fantaro@gmail.com>
 "
 " 解説:
@@ -301,6 +301,20 @@ if filereadable($VIMRUNTIME . '/plugin/mru.vim')
   " menu is enabled.
   let MRU_Add_Menu = 0
   nnoremap <silent> <F10> :MRU<CR>
+endif
+
+" tagbarの設定
+if filereadable($VIMRUNTIME . '/plugin/tagbar.vim')
+  " If this option is set the Vim window will be expanded by the width of the
+  " Tagbar window if using a GUI version of Vim.
+  let g:tagbar_expand = 1
+  nnoremap <silent> <F11> :TagbarToggle<CR>
+endif
+
+" snipMateの設定
+if filereadable($VIMRUNTIME . '/plugin/snipMate.vim')
+  " runtimepathにruntime\afterディレクトリを追加する
+  set runtimepath+=$VIMRUNTIME/after
 endif
 
 " vim-easy-alignの設定
