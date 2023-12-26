@@ -16,10 +16,12 @@
 
 ### [vim-swoop](http://www.vim.org/scripts/script.php?script_id=5069#1.1.3 "Grep and replace easily in multiple files being context aware")
 
+### [EasyMotion](https://github.com/easymotion/vim-easymotion "Provides a much simpler way to use some motions in vim")
+
 ---
 
 ## To update the Vim Help, run:
 
-### :helptags $VIM/vim82/doc (Windows)
+### :helptags $VIMRUNTIME/doc (Windows)
 
 ### :helptags $HOME/.vim/doc (Unix)
