@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change: 2024-03-10
+" Last Change: 2024-08-24
 " Maintainer:  樊 振剛（ハン シンゴウ） <fantaro@gmail.com>
 
 " VIMモード
@@ -30,11 +30,16 @@ set fileencodings=ucs-bom,utf-8,utf-8-bom,utf-16,utf-16le,cp932,euc-jp,sjis,cp93
 " 通常使う文字エンコーディング
 set encoding=UTF-8
 
+" ASCII文字の2倍の幅を使用する
+set ambiwidth=double
+
 " その他
 set nomodeline
 set printoptions=paper:a4
 set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-set jumpoptions=stack
+if version >= 901
+  set jumpoptions=stack
+endif
 
 "---------------------------------------------------------------------------
 " 検索の挙動に関する設定
@@ -274,7 +279,7 @@ if filereadable($VIMRUNTIME . '/plugin/netrwPlugin.vim')
   let g:netrw_keepdir = 0
 
   " 30% of the current netrw buffer's window to be used for the new window
-  let g:netrw_winsize = 25
+  let g:netrw_winsize = 30
 
   " suppress the banner (pressing "I" to toggle the displaying of the banner)
   let g:netrw_banner = 0
@@ -415,7 +420,8 @@ set ruler
 set list
 
 " どの文字でタブや改行を表示するかを設定
-set listchars=tab:»\ ,trail:⌂,extends:…,precedes:…,nbsp:%
+"set listchars=tab:»\ ,trail:␣,precedes:«,extends:»,eol:⏎
+set listchars=tab:»\ ,trail:␣,precedes:«,extends:»
 
 " 長い行を折り返して表示 (nowrap:折り返さない)
 set nowrap
