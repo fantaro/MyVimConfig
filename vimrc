@@ -9,8 +9,10 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change: 2024-08-24
-" Maintainer:  樊 振剛（ハン シンゴウ） <fantaro@gmail.com>
+" Last Change : 2024-09-11
+"  Maintainer : 樊 振剛（ハン シンゴウ）
+"        Mail : fantaro@gmail.com
+"      Github : https://github.com/fantaro
 
 " VIMモード
 set nocompatible
@@ -40,6 +42,28 @@ set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.i
 if version >= 901
   set jumpoptions=stack
 endif
+
+"---------------------------------------------------------------------------
+" プラグイン導入
+" PlugInstall : Install plugins
+" PlugUpdate  : Install or update plugins
+" PlugClean   : Remove unlisted plugins
+" PlugUpgrade : Upgrade vim-plug itself
+" PlugStatus  : Check the status of plugins
+" PlugDiff    : Examine changes from the previous update and the pending changes
+"---------------------------------------------------------------------------
+call plug#begin($VIM . '/vimfiles/plugged')
+  Plug 'vim-scripts/CmdlineComplete'
+  Plug 'junegunn/vim-easy-align'
+  Plug 'easymotion/vim-easymotion'
+  Plug 'mbbill/fencview'
+  Plug 'itchyny/lightline.vim'
+  Plug 'yegappan/mru'
+  Plug 'preservim/tagbar'
+  Plug 'bronson/vim-visual-star-search'
+  Plug 'lifepillar/vim-solarized8'
+  Plug 'arcticicestudio/nord-vim'
+call plug#end()
 
 "---------------------------------------------------------------------------
 " 検索の挙動に関する設定
@@ -142,11 +166,11 @@ set textwidth=0
 
 "---------------------------------------------------------------------------
 " キーマップの設定
-" inoremap : #Insert mode
-" noremap  : #Normal + Visual + Select + Operator-pending modes
-" nnoremap : #Normal mode
-" vnoremap : #Visual + Select mode
-" cnoremap : #Command-line mode
+" inoremap : Insert mode
+" noremap  : Normal + Visual + Select + Operator-pending modes
+" nnoremap : Normal mode
+" vnoremap : Visual + Select mode
+" cnoremap : Command-line mode
 "---------------------------------------------------------------------------
 " define <Leader>
 let mapleader = ","
@@ -291,26 +315,8 @@ if filereadable($VIMRUNTIME . '/plugin/netrwPlugin.vim')
   nnoremap <silent> <F3> :Lexplore<CR>
 endif
 
-" memolistの設定
-if filereadable($VIM . '/vimfiles/plugin/memolist.vim')
-  " Create a new Memo
-  nnoremap <leader>mn :MemoNew<CR>
-
-  " List Memos
-  nnoremap <leader>ml :MemoList<CR>
-
-  " Grep Memo Directory
-  nnoremap <leader>mg :MemoGrep<CR>
-
-  " Default directory
-  let g:memolist_path = "$HOME/Documents/MyMemo"
-  if isdirectory(expand("$HOME/OneDrive"))
-    let g:memolist_path = "$HOME/OneDrive/MyMemo"
-  endif
-endif
-
 " EasyMotionの設定
-if filereadable($VIM . '/vimfiles/plugin/EasyMotion.vim')
+if filereadable($VIM . '/vimfiles/plugged/vim-easymotion/plugin/EasyMotion.vim')
   " Move to {char}{char}
   map <leader>s <Plug>(easymotion-bd-f2)
   nmap <leader>s <Plug>(easymotion-overwin-f2)
@@ -321,14 +327,14 @@ if filereadable($VIM . '/vimfiles/plugin/EasyMotion.vim')
 endif
 
 " Lightlineの設定
-if filereadable($VIM . '/vimfiles/plugin/lightline.vim')
+if filereadable($VIM . '/vimfiles/plugged/lightline.vim/plugin/lightline.vim')
   let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ }
 endif
 
 " mruの設定
-if filereadable($VIM . '/vimfiles/plugin/mru.vim')
+if filereadable($VIM . '/vimfiles/plugged/mru/plugin/mru.vim')
   " If you don't use the "File->Recent Files" menu and want to disable it,
   " then you can set the 'MRU_Add_Menu' variable to zero. By default, the
   " menu is enabled.
@@ -337,7 +343,7 @@ if filereadable($VIM . '/vimfiles/plugin/mru.vim')
 endif
 
 " tagbarの設定
-if filereadable($VIM . '/vimfiles/plugin/tagbar.vim')
+if filereadable($VIM . '/vimfiles/plugged/tagbar/plugin/tagbar.vim')
   " If this option is set the Vim window will be expanded by the width of the
   " Tagbar window if using a GUI version of Vim.
   let g:tagbar_expand = 1
@@ -345,7 +351,7 @@ if filereadable($VIM . '/vimfiles/plugin/tagbar.vim')
 endif
 
 " vim-easy-alignの設定
-if filereadable($VIM . '/vimfiles/plugin/easy_align.vim')
+if filereadable($VIM . '/vimfiles/plugged/vim-easy-align/plugin/easy_align.vim')
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
 
@@ -369,7 +375,7 @@ autocmd Colorscheme * highlight link ZenkakuSpace Error
 autocmd VimEnter * match ZenkakuSpace /　/
 
 " CUI用カラースキーム
-colorscheme solarized8
+silent! colorscheme solarized8
 
 " GUI用のオプション
 if has('gui_running')
@@ -395,7 +401,7 @@ if has('gui_running')
   set lines=36
 
   " GUI用カラースキーム
-  colorscheme solarized8
+  silent! colorscheme solarized8
 endif
 
 " 起動時のメッセージを消す
@@ -420,8 +426,8 @@ set ruler
 set list
 
 " どの文字でタブや改行を表示するかを設定
-"set listchars=tab:»\ ,trail:␣,precedes:«,extends:»,eol:⏎
-set listchars=tab:»\ ,trail:␣,precedes:«,extends:»
+"set listchars=tab:\|\ »,trail:␣,precedes:«,extends:»,eol:⏎
+set listchars=tab:\|\ »,trail:␣,precedes:«,extends:»
 
 " 長い行を折り返して表示 (nowrap:折り返さない)
 set nowrap
