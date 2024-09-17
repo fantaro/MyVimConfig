@@ -331,6 +331,9 @@ if filereadable($VIM . '/vimfiles/plugged/lightline.vim/plugin/lightline.vim')
   let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ }
+  let g:lightline.component = {
+      \ 'lineinfo': '[%3l/%3L]:%-2c'
+      \ }
 endif
 
 " mruの設定
