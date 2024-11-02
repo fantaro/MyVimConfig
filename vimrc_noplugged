@@ -52,18 +52,18 @@ endif
 " PlugStatus  : Check the status of plugins
 " PlugDiff    : Examine changes from the previous update and the pending changes
 "---------------------------------------------------------------------------
-silent! call plug#begin($VIM . '/vimfiles/plugged')
-  Plug 'vim-scripts/CmdlineComplete'
-  Plug 'junegunn/vim-easy-align'
-  Plug 'easymotion/vim-easymotion'
-  Plug 'mbbill/fencview'
-  Plug 'itchyny/lightline.vim'
-  Plug 'yegappan/mru'
-  Plug 'preservim/tagbar'
-  Plug 'bronson/vim-visual-star-search'
-  Plug 'lifepillar/vim-solarized8'
-  Plug 'arcticicestudio/nord-vim'
-silent! call plug#end()
+"silent! call plug#begin($VIM . '/vimfiles/plugged')
+"  Plug 'vim-scripts/CmdlineComplete'
+"  Plug 'junegunn/vim-easy-align'
+"  Plug 'easymotion/vim-easymotion'
+"  Plug 'mbbill/fencview'
+"  Plug 'itchyny/lightline.vim'
+"  Plug 'yegappan/mru'
+"  Plug 'preservim/tagbar'
+"  Plug 'bronson/vim-visual-star-search'
+"  Plug 'lifepillar/vim-solarized8'
+"  Plug 'arcticicestudio/nord-vim'
+"silent! call plug#end()
 
 "---------------------------------------------------------------------------
 " 検索の挙動に関する設定
@@ -316,7 +316,7 @@ if filereadable($VIMRUNTIME . '/plugin/netrwPlugin.vim')
 endif
 
 " EasyMotionの設定
-if filereadable($VIM . '/vimfiles/plugged/vim-easymotion/plugin/EasyMotion.vim')
+if filereadable($VIM . '/vimfiles/plugin/EasyMotion.vim')
   " Move to {char}{char}
   map <leader>s <Plug>(easymotion-bd-f2)
   nmap <leader>s <Plug>(easymotion-overwin-f2)
@@ -327,7 +327,7 @@ if filereadable($VIM . '/vimfiles/plugged/vim-easymotion/plugin/EasyMotion.vim')
 endif
 
 " Lightlineの設定
-if filereadable($VIM . '/vimfiles/plugged/lightline.vim/plugin/lightline.vim')
+if filereadable($VIM . '/vimfiles/plugin/lightline.vim')
   let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ }
@@ -337,7 +337,7 @@ if filereadable($VIM . '/vimfiles/plugged/lightline.vim/plugin/lightline.vim')
 endif
 
 " mruの設定
-if filereadable($VIM . '/vimfiles/plugged/mru/plugin/mru.vim')
+if filereadable($VIM . '/vimfiles/plugin/mru.vim')
   " If you don't use the "File->Recent Files" menu and want to disable it,
   " then you can set the 'MRU_Add_Menu' variable to zero. By default, the
   " menu is enabled.
@@ -346,7 +346,7 @@ if filereadable($VIM . '/vimfiles/plugged/mru/plugin/mru.vim')
 endif
 
 " tagbarの設定
-if filereadable($VIM . '/vimfiles/plugged/tagbar/plugin/tagbar.vim')
+if filereadable($VIM . '/vimfiles/plugin/tagbar.vim')
   " If this option is set the Vim window will be expanded by the width of the
   " Tagbar window if using a GUI version of Vim.
   let g:tagbar_expand = 1
@@ -354,7 +354,7 @@ if filereadable($VIM . '/vimfiles/plugged/tagbar/plugin/tagbar.vim')
 endif
 
 " vim-easy-alignの設定
-if filereadable($VIM . '/vimfiles/plugged/vim-easy-align/plugin/easy_align.vim')
+if filereadable($VIM . '/vimfiles/plugin/easy_align.vim')
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
 
