@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change : 2024-09-11
+" Last Change : 2024-11-08
 "  Maintainer : 樊 振剛（ハン シンゴウ）
 "        Mail : fantaro@gmail.com
 "      Github : https://github.com/fantaro
@@ -374,8 +374,8 @@ if has('termguicolors')
 endif
 
 " 全角スペースを視覚化
-autocmd Colorscheme * highlight link ZenkakuSpace Error
-autocmd VimEnter * match ZenkakuSpace /　/
+silent! autocmd Colorscheme * highlight link ZenkakuSpace Error
+silent! autocmd VimEnter * match ZenkakuSpace /　/
 
 " CUI用カラースキーム
 silent! colorscheme solarized8
@@ -390,7 +390,8 @@ if has('gui_running')
 
   " フォントの設定
   " Windowsフォント
-  set guifont=JetBrainsMono_NFM:h11:cDEFAULT
+  set guifont=UDEV_Gothic_NF:h12:cDEFAULT
+  "set guifont=JetBrainsMono_NFM:h11:cDEFAULT
   "set guifont=Cascadia\ Code:h11:cDEFAULT
   "set guifont=Consolas:h12:cDEFAULT
   "set guifont=MS_Gothic:h14:cDEFAULT
