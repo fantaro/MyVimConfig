@@ -206,6 +206,10 @@ noremap # #zz
 noremap g* g*zz
 noremap g# g#zz
 
+" nNコマンドの挙動を自然にする
+nnoremap <expr> n 'Nn'[v:searchforward]
+nnoremap <expr> N 'nN'[v:searchforward]
+
 " 行が折り返されている場合表示行上下に移動
 noremap <C-j> gj
 noremap <C-k> gk
