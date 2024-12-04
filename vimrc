@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change : 2024-11-08
+" Last Change : 2024-12-04
 "  Maintainer : 樊 振剛（ハン シンゴウ）
 "        Mail : fantaro@gmail.com
 "      Github : https://github.com/fantaro
@@ -23,6 +23,18 @@ syntax on
 " ファイル形式別プラグインのロードを有効化する
 filetype plugin on
 
+" モードラインの誤検出を回避する
+set nomodeline
+
+" 用紙サイズ: A4
+set printoptions=paper:A4
+
+" この拡張子を持つファイルは、ワイルドカードに複数のファイルがマッチしたときの優先度が低くなる
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+
+" ジャンプリストをタグスタックのように動作させる
+silent! set jumpoptions=stack
+
 "---------------------------------------------------------------------------
 " 文字エンコーディングの設定
 "---------------------------------------------------------------------------
@@ -34,14 +46,6 @@ set encoding=UTF-8
 
 " ASCII文字の2倍の幅を使用する
 set ambiwidth=double
-
-" その他
-set nomodeline
-set printoptions=paper:a4
-set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
-if version >= 901
-  set jumpoptions=stack
-endif
 
 "---------------------------------------------------------------------------
 " プラグイン導入
@@ -129,9 +133,7 @@ set matchtime=2
 set wildmenu
 
 " コマンドライン補完するときにポップアップを使う
-if version >= 900
-  set wildoptions=pum
-endif
+silent! set wildoptions=pum
 
 " 複数のマッチがあるときは、全てのマッチを羅列し、最初のマッチを補完する
 set wildmode=list:full
@@ -394,13 +396,15 @@ if has('gui_running')
 
   " フォントの設定
   " Windowsフォント
-  set guifont=UDEV_Gothic_NF:h12:cDEFAULT
+  "set guifont=UDEV_Gothic_NF:h12:cDEFAULT
   "set guifont=JetBrainsMono_NFM:h11:cDEFAULT
   "set guifont=Cascadia\ Code:h11:cDEFAULT
   "set guifont=Consolas:h12:cDEFAULT
   "set guifont=MS_Gothic:h14:cDEFAULT
   " Linuxフォント
   "set guifont=DejaVu\ Sans\ Mono\ 11
+  "set guifont=JetBrainsMono\ Nerd\ Font\ Mono\ 11
+  set guifont=SauceCodePro\ Nerd\ Font\ Mono\ 11
 
   " ウインドウの幅
   set columns=150
