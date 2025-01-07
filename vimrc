@@ -184,10 +184,10 @@ nnoremap <silent> <F2> :tabnew<CR>
 
 " タブページを切り替える
 if has('gui_running')
-  inoremap <C-Tab> <ESC>gt
-  inoremap <C-S-Tab> <ESC>gT
-  noremap <C-Tab> <ESC>gt
-  noremap <C-S-Tab> <ESC>gT
+  inoremap <C-Tab> <Esc>gt
+  inoremap <C-S-Tab> <Esc>gT
+  noremap <C-Tab> <Esc>gt
+  noremap <C-S-Tab> <Esc>gT
 endif
 
 " 括弧を自動的に補足
@@ -203,20 +203,20 @@ nnoremap <expr> n 'Nn'[v:searchforward]
 nnoremap <expr> N 'nN'[v:searchforward]
 
 " スペースでダウンアップ
-noremap <Space> 3<C-E>
-noremap <S-Space> 3<C-Y>
+noremap <Space> 3<C-e>
+noremap <S-Space> 3<C-y>
 
 " 行頭、行末に移動する
 noremap <Leader>h ^
 noremap <Leader>l $
 
 " 行の移動
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+nnoremap <silent> <Leader>j :m .+1<CR>==
+nnoremap <silent> <Leader>k :m .-2<CR>==
+inoremap <silent> <Leader>j <Esc>:m .+1<CR>==gi
+inoremap <silent> <Leader>k <Esc>:m .-2<CR>==gi
+vnoremap <silent> <Leader>j :m '>+1<CR>gv=gv
+vnoremap <silent> <Leader>k :m '<-2<CR>gv=gv
 
 " すべて選択
 nnoremap <Leader>a ggVG
@@ -274,11 +274,11 @@ vnoremap <silent> < <gv
 
 " コピーペースト
 if has('clipboard')
-  vnoremap <A-y> "+y
-  map <A-p> "+gP
-  imap <A-p> <C-R>+
-  vmap <A-p> "+gP
-  cmap <A-p> <C-R>+
+  vnoremap <Leader>y "+y
+  map <Leader>p "+gP
+  imap <Leader>p <C-r>+
+  vmap <Leader>p "+gP
+  cmap <Leader>p <C-r>+
 endif
 
 "---------------------------------------------------------------------------
