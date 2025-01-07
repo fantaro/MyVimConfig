@@ -211,7 +211,7 @@ noremap <Leader>h ^
 noremap <Leader>l $
 
 " すべて選択
-noremap <Leader>a ggVG
+nnoremap <Leader>a ggVG
 
 " コマンドラインモードの「↑、↓、←、→」
 cnoremap <C-k> <Up>
