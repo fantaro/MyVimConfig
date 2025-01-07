@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change : 2024-12-04
+" Last Change : 2025-01-07
 "  Maintainer : 樊 振剛（ハン シンゴウ）
 "        Mail : fantaro@gmail.com
 "      Github : https://github.com/fantaro
@@ -190,10 +190,6 @@ if has('gui_running')
   noremap <C-S-Tab> <ESC>gT
 endif
 
-" TABにて対応ペアにジャンプ
-nnoremap <Tab> %
-vnoremap <Tab> %
-
 " 括弧を自動的に補足
 inoremap {} {}<Left>
 inoremap [] []<Left>
@@ -202,21 +198,9 @@ inoremap "" ""<Left>
 inoremap '' ''<Left>
 inoremap <> <><Left>
 
-" 検索箇所を真ん中に
-noremap n nzz
-noremap N Nzz
-noremap * *zz
-noremap # #zz
-noremap g* g*zz
-noremap g# g#zz
-
 " nNコマンドの挙動を自然にする
 nnoremap <expr> n 'Nn'[v:searchforward]
 nnoremap <expr> N 'nN'[v:searchforward]
-
-" 行が折り返されている場合表示行上下に移動
-noremap <C-j> gj
-noremap <C-k> gk
 
 " スペースでダウンアップ
 noremap <Space> 3<C-E>
@@ -259,14 +243,10 @@ nnoremap <silent> <F9> :registers<CR>
 nnoremap <silent> <C-w> :confirm bd<CR>
 
 " ウィンドウの移動
-nnoremap <silent> <A-Up> :wincmd k<CR>
-nnoremap <silent> <A-Down> :wincmd j<CR>
-nnoremap <silent> <A-Left> :wincmd h<CR>
-nnoremap <silent> <A-Right> :wincmd l<CR>
-
-" 加算と減算
-nnoremap + <C-a>
-nnoremap - <C-x>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
 
 " 行末までのヤンクにする
 nnoremap Y y$
@@ -398,7 +378,7 @@ if has('gui_running')
 
   " フォントの設定
   " Windowsフォント
-  "set guifont=UDEV_Gothic_NF:h12:cDEFAULT
+  set guifont=UDEV_Gothic_NF:h12:cDEFAULT
   "set guifont=JetBrainsMono_NFM:h11:cDEFAULT
   "set guifont=Cascadia\ Code:h11:cDEFAULT
   "set guifont=Consolas:h12:cDEFAULT
@@ -406,7 +386,7 @@ if has('gui_running')
   " Linuxフォント
   "set guifont=DejaVu\ Sans\ Mono\ 11
   "set guifont=JetBrainsMono\ Nerd\ Font\ Mono\ 11
-  set guifont=SauceCodePro\ Nerd\ Font\ Mono\ 11
+  "set guifont=SauceCodePro\ Nerd\ Font\ Mono\ 11
 
   " ウインドウの幅
   set columns=150
