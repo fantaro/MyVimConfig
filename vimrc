@@ -210,6 +210,14 @@ noremap <S-Space> 3<C-Y>
 noremap <Leader>h ^
 noremap <Leader>l $
 
+" 行の移動
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
 " すべて選択
 nnoremap <Leader>a ggVG
 
@@ -378,7 +386,7 @@ if has('gui_running')
 
   " フォントの設定
   " Windowsフォント
-  set guifont=UDEV_Gothic_NF:h12:cDEFAULT
+  "set guifont=UDEV_Gothic_NF:h12:cDEFAULT
   "set guifont=JetBrainsMono_NFM:h11:cDEFAULT
   "set guifont=Cascadia\ Code:h11:cDEFAULT
   "set guifont=Consolas:h12:cDEFAULT
@@ -386,7 +394,7 @@ if has('gui_running')
   " Linuxフォント
   "set guifont=DejaVu\ Sans\ Mono\ 11
   "set guifont=JetBrainsMono\ Nerd\ Font\ Mono\ 11
-  "set guifont=SauceCodePro\ Nerd\ Font\ Mono\ 11
+  set guifont=SauceCodePro\ Nerd\ Font\ Mono\ 11
 
   " ウインドウの幅
   set columns=150
