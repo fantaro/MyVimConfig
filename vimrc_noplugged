@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change : 2025-01-07
+" Last Change : 2025-01-25
 "  Maintainer : 樊 振剛（ハン シンゴウ）
 "        Mail : fantaro@gmail.com
 "      Github : https://github.com/fantaro
@@ -66,7 +66,7 @@ set ambiwidth=double
 "  Plug 'preservim/tagbar'
 "  Plug 'bronson/vim-visual-star-search'
 "  Plug 'lifepillar/vim-solarized8'
-"  Plug 'lifepillar/vim-gruvbox8'
+"  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 "  Plug 'ryanoasis/vim-devicons'
 "  Plug 'mg979/vim-visual-multi'
 "silent! call plug#end()
@@ -135,10 +135,10 @@ set matchtime=2
 set wildmenu
 
 " コマンドライン補完するときにポップアップを使う
-silent! set wildoptions=pum
+silent! set wildoptions=pum,tagfile
 
 " 複数のマッチがあるときは、全てのマッチを羅列し、最初のマッチを補完する
-set wildmode=list:full
+set wildmode=longest:full,full
 
 " パターンのどれかにマッチしたファイルは、ファイル／ディレクトリ名の補完時に無視される
 set wildignore&
@@ -325,7 +325,7 @@ endif
 " Lightlineの設定
 if filereadable($VIM . '/vimfiles/plugin/lightline.vim')
   let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'catppuccin_macchiato',
       \ }
   let g:lightline.component = {
       \ 'lineinfo': '[%3l/%3L]:%-2c'
@@ -369,12 +369,8 @@ if has('termguicolors')
   set termguicolors
 endif
 
-" 全角スペースを視覚化
-silent! autocmd Colorscheme * highlight link ZenkakuSpace Error
-silent! autocmd VimEnter * match ZenkakuSpace /　/
-
 " CUI用カラースキーム
-silent! colorscheme solarized8
+silent! colorscheme catppuccin_macchiato
 
 " GUI用のオプション
 if has('gui_running')
@@ -395,6 +391,7 @@ if has('gui_running')
   "set guifont=DejaVu\ Sans\ Mono\ 11
   "set guifont=JetBrainsMono\ Nerd\ Font\ Mono\ 11
   "set guifont=SauceCodePro\ Nerd\ Font\ Mono\ 11
+  "set guifont=Hack\ Nerd\ Font\ Mono\ 11
 
   " ウインドウの幅
   set columns=150
@@ -403,7 +400,7 @@ if has('gui_running')
   set lines=36
 
   " GUI用カラースキーム
-  silent! colorscheme solarized8
+  silent! colorscheme catppuccin_macchiato
 endif
 
 " 起動時のメッセージを消す
