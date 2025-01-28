@@ -203,8 +203,8 @@ nnoremap <expr> n 'Nn'[v:searchforward]
 nnoremap <expr> N 'nN'[v:searchforward]
 
 " スペースでダウンアップ
-noremap <Space> 3<C-e>
-noremap <S-Space> 3<C-y>
+noremap <Space> 5<C-e>
+noremap <S-Space> 5<C-y>
 
 " 行頭、行末に移動する
 noremap <Leader>h ^

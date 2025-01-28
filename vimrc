@@ -203,8 +203,8 @@ nnoremap <expr> n 'Nn'[v:searchforward]
 nnoremap <expr> N 'nN'[v:searchforward]
 
 " スペースでダウンアップ
-noremap <Space> 3<C-e>
-noremap <S-Space> 3<C-y>
+noremap <Space> 5<C-e>
+noremap <S-Space> 5<C-y>
 
 " 行頭、行末に移動する
 noremap <Leader>h ^
@@ -391,7 +391,7 @@ if has('gui_running')
   "set guifont=DejaVu\ Sans\ Mono\ 11
   "set guifont=JetBrainsMono\ Nerd\ Font\ Mono\ 11
   "set guifont=SauceCodePro\ Nerd\ Font\ Mono\ 11
-  set guifont=Hack\ Nerd\ Font\ Mono\ 11
+  set guifont=Hack\ Nerd\ Font\ Mono\ 12
 
   " ウインドウの幅
   set columns=150
