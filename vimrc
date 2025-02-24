@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change : 2025-01-25
+" Last Change : 2025-02-24
 "  Maintainer : 樊 振剛（ハン シンゴウ）
 "        Mail : fantaro@gmail.com
 "      Github : https://github.com/fantaro
@@ -261,6 +261,7 @@ nnoremap Y y$
 
 " 強制全保存終了を無効化
 nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>
 
 " マウスの中ボタンによる貼り付けを無効化
 noremap <MiddleMouse> <Nop>
@@ -280,6 +281,10 @@ if has('clipboard')
   vmap <Leader>p "+gP
   cmap <Leader>p <C-r>+
 endif
+
+" マクロの実行パフォーマンスを向上させる
+nnoremap @ <CMD>execute "noautocmd norm! " . v:count1 . "@" . getcharstr()<CR>
+xnoremap @ :<C-U>execute "noautocmd '<,'>norm! " . v:count1 . "@" . getcharstr()<CR>
 
 "---------------------------------------------------------------------------
 " プラグインの設定
