@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change : 2025-02-24
+" Last Change : 2025-02-27
 "  Maintainer : 樊 振剛（ハン シンゴウ）
 "        Mail : fantaro@gmail.com
 "      Github : https://github.com/fantaro
@@ -332,9 +332,17 @@ if filereadable($VIM . '/vimfiles/plugin/lightline.vim')
   let g:lightline = {
       \ 'colorscheme': 'catppuccin_macchiato',
       \ }
-  let g:lightline.component = {
-      \ 'lineinfo': '[%3l/%3L]:%-2c'
-      \ }
+    if filereadable($VIM . '/vimfiles/plugin/webdevicons.vim')
+      let g:lightline.component = {
+        \ 'fileformat': '%{&ff. " " . WebDevIconsGetFileFormatSymbol()}',
+        \ 'filetype': '%{&ft!=#""?&ft . " " . WebDevIconsGetFileTypeSymbol():"no ft"}',
+        \ 'lineinfo': '[%3l/%3L]:%-2c'
+        \ }
+    else
+      let g:lightline.component = {
+        \ 'lineinfo': '[%3l/%3L]:%-2c'
+        \ }
+    endif
 endif
 
 " mruの設定
