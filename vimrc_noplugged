@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change : 2025-02-27
+" Last Change : 2025-03-04
 "  Maintainer : 樊 振剛（ハン シンゴウ）
 "        Mail : fantaro@gmail.com
 "      Github : https://github.com/fantaro
@@ -69,6 +69,7 @@ set ambiwidth=double
 "  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 "  Plug 'ryanoasis/vim-devicons'
 "  Plug 'mg979/vim-visual-multi'
+"  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 "silent! call plug#end()
 
 "---------------------------------------------------------------------------
