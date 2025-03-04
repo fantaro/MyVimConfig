@@ -333,17 +333,17 @@ if filereadable($VIM . '/vimfiles/plugged/lightline.vim/plugin/lightline.vim')
   let g:lightline = {
       \ 'colorscheme': 'catppuccin_macchiato',
       \ }
-    if filereadable($VIM . '/vimfiles/plugged/vim-devicons/plugin/webdevicons.vim')
-      let g:lightline.component = {
-        \ 'fileformat': '%{&ff. " " . WebDevIconsGetFileFormatSymbol()}',
-        \ 'filetype': '%{&ft!=#""?&ft . " " . WebDevIconsGetFileTypeSymbol():"no ft"}',
-        \ 'lineinfo': '[%3l/%3L]:%-2c'
-        \ }
-    else
-      let g:lightline.component = {
-        \ 'lineinfo': '[%3l/%3L]:%-2c'
-        \ }
-    endif
+  if filereadable($VIM . '/vimfiles/plugged/vim-devicons/plugin/webdevicons.vim')
+    let g:lightline.component = {
+      \ 'fileformat': '%{&ff. " " . WebDevIconsGetFileFormatSymbol()}',
+      \ 'filetype': '%{&ft!=#""?&ft . " " . WebDevIconsGetFileTypeSymbol():"no ft"}',
+      \ 'lineinfo': '[%3l/%3L]:%-2c'
+      \ }
+  else
+    let g:lightline.component = {
+      \ 'lineinfo': '[%3l/%3L]:%-2c'
+      \ }
+  endif
 endif
 
 " mruの設定
