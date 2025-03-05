@@ -331,8 +331,8 @@ endif
 " Lightlineの設定
 if filereadable($VIM . '/vimfiles/plugged/lightline.vim/plugin/lightline.vim')
   let g:lightline = {
-      \ 'colorscheme': 'catppuccin_macchiato',
-      \ }
+    \ 'colorscheme': 'catppuccin_macchiato',
+    \ }
   if filereadable($VIM . '/vimfiles/plugged/vim-devicons/plugin/webdevicons.vim')
     let g:lightline.component = {
       \ 'fileformat': '%{&ff. " " . WebDevIconsGetFileFormatSymbol()}',
