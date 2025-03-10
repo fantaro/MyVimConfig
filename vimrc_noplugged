@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change : 2025-03-04
+" Last Change : 2025-03-10
 "  Maintainer : 樊 振剛（ハン シンゴウ）
 "        Mail : fantaro@gmail.com
 "      Github : https://github.com/fantaro
@@ -56,7 +56,12 @@ set ambiwidth=double
 " PlugStatus  : Check the status of plugins
 " PlugDiff    : Examine changes from the previous update and the pending changes
 "---------------------------------------------------------------------------
-"silent! call plug#begin($VIM . '/vimfiles/plugged')
+let $MyPlugDir = "~/.vim"
+if has('win32')
+  let $MyPlugDir = $VIM . '/vimfiles'
+endif
+
+"silent! call plug#begin($MyPlugDir)
 "  Plug 'vim-scripts/CmdlineComplete'
 "  Plug 'junegunn/vim-easy-align'
 "  Plug 'easymotion/vim-easymotion'
@@ -67,7 +72,6 @@ set ambiwidth=double
 "  Plug 'bronson/vim-visual-star-search'
 "  Plug 'lifepillar/vim-solarized8'
 "  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
-"  Plug 'ryanoasis/vim-devicons'
 "  Plug 'mg979/vim-visual-multi'
 "  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug'] }
 "silent! call plug#end()
@@ -318,7 +322,7 @@ if filereadable($VIMRUNTIME . '/plugin/netrwPlugin.vim')
 endif
 
 " EasyMotionの設定
-if filereadable($VIM . '/vimfiles/plugin/EasyMotion.vim')
+if filereadable(expand($MyPlugDir . '/plugin/EasyMotion.vim'))
   " Move to {char}{char}
   map <leader>s <Plug>(easymotion-bd-f2)
   nmap <leader>s <Plug>(easymotion-overwin-f2)
@@ -329,25 +333,17 @@ if filereadable($VIM . '/vimfiles/plugin/EasyMotion.vim')
 endif
 
 " Lightlineの設定
-if filereadable($VIM . '/vimfiles/plugin/lightline.vim')
+if filereadable(expand($MyPlugDir . '/plugin/lightline.vim'))
   let g:lightline = {
     \ 'colorscheme': 'catppuccin_macchiato',
     \ }
-  if filereadable($VIM . '/vimfiles/plugin/webdevicons.vim')
-    let g:lightline.component = {
-      \ 'fileformat': '%{&ff. " " . WebDevIconsGetFileFormatSymbol()}',
-      \ 'filetype': '%{&ft!=#""?&ft . " " . WebDevIconsGetFileTypeSymbol():"no ft"}',
-      \ 'lineinfo': '[%3l/%3L]:%-2c'
-      \ }
-  else
-    let g:lightline.component = {
-      \ 'lineinfo': '[%3l/%3L]:%-2c'
-      \ }
-  endif
+  let g:lightline.component = {
+    \ 'lineinfo': '[%3l/%3L]:%-2c'
+    \ }
 endif
 
 " mruの設定
-if filereadable($VIM . '/vimfiles/plugin/mru.vim')
+if filereadable(expand($MyPlugDir . '/plugin/mru.vim'))
   " If you don't use the "File->Recent Files" menu and want to disable it,
   " then you can set the 'MRU_Add_Menu' variable to zero. By default, the
   " menu is enabled.
@@ -356,7 +352,7 @@ if filereadable($VIM . '/vimfiles/plugin/mru.vim')
 endif
 
 " tagbarの設定
-if filereadable($VIM . '/vimfiles/plugin/tagbar.vim')
+if filereadable(expand($MyPlugDir . '/plugin/tagbar.vim'))
   " If this option is set the Vim window will be expanded by the width of the
   " Tagbar window if using a GUI version of Vim.
   let g:tagbar_expand = 1
@@ -364,7 +360,7 @@ if filereadable($VIM . '/vimfiles/plugin/tagbar.vim')
 endif
 
 " vim-easy-alignの設定
-if filereadable($VIM . '/vimfiles/plugin/easy_align.vim')
+if filereadable(expand($MyPlugDir . '/plugin/easy_align.vim'))
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
 
