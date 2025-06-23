@@ -1,5 +1,6 @@
 **我和Vim的故事**
 ===
+[日本語版][jp]
 
 [Vim][vim]相信IT从业者一定都不会感到陌生，至少这个大名应该听过吧，Vim是ViIMproved的简称。
 她是从Vi发展出来的文本编辑器，和Emacs并列成为Unix/Linux系统用户最喜欢的编辑器。
@@ -49,7 +50,7 @@
 然后我研究并成功地将这个版本的Vim用在中文系统下。如果大家也有日文系统下使用Vim的需求，
 可以去[香り屋][kaoriya]或者该作者的[GitHub][kaoriya_releases]下载。
 
-
+[jp]: https://github.com/fantaro/MyVimConfig/blob/master/README_jp.md
 [vim]: http://ja.wikipedia.org/wiki/Vim
 [Emacs]: http://ja.wikipedia.org/wiki/Emacs
 [hidemaru]: http://hide.maruo.co.jp/software/hidemaru.html
