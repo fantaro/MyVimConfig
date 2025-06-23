@@ -37,7 +37,7 @@
 找一个能直接在Linux上修改文件的编辑器，这时当然我又一次想到了Vim。
 
 并且这一次由于是工作需要，我决定花时间静下心来好好学习驾驭Vim，这一次我找到了一个轻松入门的教程
-「Learn Vim Progressively」，这个教程的好处就是并不一上来就列出所有的快捷键和命令，而是先对一个
+「[Learn Vim Progressively][Learn Vim Progressively]」，这个教程的好处就是并不一上来就列出所有的快捷键和命令，而是先对一个
 编辑器最基本的功能（打开文件、移动光标、输入内容、保存文件）进行说明，掌握了这些基本的之后，
 再根据自己的需要选择性的学习一些高级功能的实现，现在已经能把Notepad++所有的功能都在Vim上实现了，
 并且随着在工作中不断的使用，功力大增，可以轻松的处理百万行的数据文件。
@@ -56,5 +56,6 @@
 [hidemaru]: http://hide.maruo.co.jp/software/hidemaru.html
 [sakura]: http://sakura-editor.sourceforge.net
 [npp]: http://notepad-plus-plus.org
+[Learn Vim Progressively]: https://yannesposito.com/Scratch/en/blog/Learn-Vim-Progressively
 [kaoriya]: http://www.kaoriya.net
 [kaoriya_releases]: https://github.com/koron/vim-kaoriya/releases
