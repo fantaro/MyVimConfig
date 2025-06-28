@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change : 2025-03-10
+" Last Change : 2025-06-29
 "  Maintainer : 樊 振剛（ハン シンゴウ）
 "        Mail : fantaro@gmail.com
 "      Github : https://github.com/fantaro
@@ -135,6 +135,9 @@ set showmatch
 
 " マッチしている括弧を表示するための時間を0.1秒単位で指定する
 set matchtime=2
+
+" サブフォルダまで検索する
+set path+=**
 
 " コマンドライン補完するときに強化されたものを使う
 set wildmenu
@@ -392,16 +395,9 @@ if has('gui_running')
 
   " フォントの設定
   " Windowsフォント
-  "set guifont=UDEV_Gothic_NF:h12:cDEFAULT
-  "set guifont=JetBrainsMono_NFM:h11:cDEFAULT
-  "set guifont=Cascadia\ Code:h11:cDEFAULT
-  "set guifont=Consolas:h12:cDEFAULT
-  "set guifont=MS_Gothic:h14:cDEFAULT
+  set guifont=Maple_Mono_NF_CN_Medium:h12:cDEFAULT
   " Linuxフォント
-  "set guifont=DejaVu\ Sans\ Mono\ 11
-  "set guifont=JetBrainsMono\ Nerd\ Font\ Mono\ 11
-  "set guifont=SauceCodePro\ Nerd\ Font\ Mono\ 11
-  set guifont=Hack\ Nerd\ Font\ Mono\ 12
+  "set guifont=Maple\ Mono\ NF\ CN\ Medium\ 12
 
   " ウインドウの幅
   set columns=150
