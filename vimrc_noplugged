@@ -9,7 +9,7 @@
 "       vim               vim       vim   vim   vim
 "       vim            vimvimvim    vim   vim   vim
 
-" Last Change : 2025-03-10
+" Last Change : 2025-06-29
 "  Maintainer : 樊 振剛（ハン シンゴウ）
 "        Mail : fantaro@gmail.com
 "      Github : https://github.com/fantaro
@@ -135,6 +135,9 @@ set showmatch
 
 " マッチしている括弧を表示するための時間を0.1秒単位で指定する
 set matchtime=2
+
+" サブフォルダまで検索する
+set path+=**
 
 " コマンドライン補完するときに強化されたものを使う
 set wildmenu
